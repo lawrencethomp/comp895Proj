@@ -1,0 +1,31 @@
+
+
+ul#m4a_navbar {
+    text-align: center;
+    list-style: none;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+ul#m4a_navbar li {
+    display: inline;
+}
+
+#nav_div {
+    width: 100%;
+}
+
+#main_logo {
+    color: white;
+    font-weight: 900;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    margin: auto;
+    width: 25%;
+}
+
+#m4a_navitem {
+    color: white;
+    display: inline-block;
+    font-weight: 800;
+    padding: 10px;
+}

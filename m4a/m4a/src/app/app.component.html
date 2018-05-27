@@ -1,5 +1,16 @@
-<button class="btn btn-primary">Test Button</button>
-<div style="text-align:center">
-</div>
+<body>
 <div>
-<router-outlet></router-outlet></div>
+
+<h1 id="main_logo">Medicare for All</h1>    
+<div id="nav_div">
+    <ul id="m4a_navbar">
+        <li id="m4a_navitem"><a routerLink="/login" routerLinkActive="active">Login</a></li>
+        <li id="m4a_navitem"><a routerLink="/turf" routerLinkActive="active">Generate Turf</a></li>
+        <li id="m4a_navitem"><a routerLink="/user" routerLinkActive="active">User</a></li>
+    </ul>
+    </div>
+<router-outlet></router-outlet>
+
+</div>
+
+</body>

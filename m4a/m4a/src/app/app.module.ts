@@ -1,3 +1,4 @@
+import { DataService } from './data.service';
 import { GenerateTurfComponent } from './generate-turf/generate-turf.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -13,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { ViewUserComponent } from './view-user/view-user.component';
 import { LandingComponent } from './landing/landing.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ContactListComponent } from './contact-list/contact-list.component';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     ViewUserComponent,
     LandingComponent,
-    GenerateTurfComponent
+    GenerateTurfComponent,
+    ContactListComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     routing,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

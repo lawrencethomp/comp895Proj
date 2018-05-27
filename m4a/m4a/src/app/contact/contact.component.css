@@ -1,0 +1,47 @@
+table{
+    margin-left: 5%;
+    padding: 0%;
+
+    border: 1px solid black;
+    width: 50%;
+}
+
+.contactHeader {
+    color: white;
+    font-family: monospace;
+    
+}
+.contactNum{
+    font-weight: bold;
+}
+.contactClass tr:nth-child(odd) {
+    background-color: rgb(173, 210, 211);
+}
+.contactClass tr:nth-child(even) {
+    background-color: rgb(243, 237, 228);
+}
+
+.contactButton {
+    border: none;
+    background: none;
+
+    color: silver;
+    transition: transform .2s;
+}
+
+.contactButton:hover{
+    transform: scale(1.7);
+    color: white;
+    font-weight: bolder;
+}
+
+.contactFrame {
+    background-color: rgb(56, 56, 203);
+    transition: transform .1s;
+    border: 3px solid black;
+}
+
+.contactFrame:hover{
+    background-color: rgb(93, 93, 196);
+    transform: scale(1.01)
+}

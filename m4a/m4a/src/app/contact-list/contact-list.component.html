@@ -1,0 +1,10 @@
+
+Showing Results of Search:<br><br>
+<div *ngIf ="contactsInitiated">
+  <app-contact 
+    *ngFor="let contact of contacts; index as i; let l = count" 
+    [contactData]=contact
+    [arraySpot]=i
+    [arrayLength]=contacts.length>
+  </app-contact>
+</div>

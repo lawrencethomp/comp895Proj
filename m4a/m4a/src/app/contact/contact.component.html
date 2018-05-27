@@ -1,4 +1,32 @@
-<p>
-  contact works!
-  {{contacts}}
-</p>
+
+<div class="contactFrame">
+    <span class="contactHeader">
+      Contact <span class="contactNum">{{ arraySpot }}</span> of 
+    <span class="contactNum">
+      {{arrayLength}}</span>.</span>
+    
+    <table class="contactClass">
+    <tr>
+      <td>Name: </td>
+      <td> {{ contactData.name }} </td>
+    </tr>
+    <tr>
+        <td>Address: </td>
+      <td>{{ contactData.address }} </td>
+    </tr>
+    <tr *ngIf="contactData.phone_number">
+        <td>Phone Number: </td>
+        <td>{{ contactData.phone_number }} </td>
+    </tr>
+    <tr *ngIf="contactData.email">
+        <td>Email: </td>
+        <td>{{contactData.email}} </td>
+    </tr>
+    <tr *ngIf="contactData.date">
+      <td>Date: </td>
+      <td>{{ contactData.date }} </td>
+    </tr>
+  </table>
+  <button class = "contactButton" (click)="editContact()">Edit</button> 
+  <button class = "contactButton" (click)="deleteContact(contactData._id)">Delete</button>
+</div>
