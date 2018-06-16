@@ -2,13 +2,14 @@ table{
     margin-left: 5%;
     padding: 0%;
 
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 50%;
 }
 
 .contactHeader {
     color: white;
     font-family: monospace;
+    text-shadow: 2px 2px black;
     
 }
 .contactNum{
@@ -21,12 +22,30 @@ table{
     background-color: rgb(243, 237, 228);
 }
 
+.confirmBox {
+    /* display: inline-block;
+    float: right; */
+    vertical-align:top;
+    display: inline-block;
+}
+
+
+.contactMenuFooter {
+    background-color: #9A3334;
+}
+
+.contactTop {
+    background-color: #9A3334;
+}
+
 .contactButton {
     border: none;
     background: none;
 
-    color: silver;
+    color: white;
+    font-weight: bold;
     transition: transform .2s;
+    text-shadow: 2px black;
 }
 
 .contactButton:hover{
@@ -36,9 +55,16 @@ table{
 }
 
 .contactFrame {
+    display: inline-block;
     background-color: rgb(56, 56, 203);
     transition: transform .1s;
-    border: 3px solid black;
+    text-shadow: .25px .25px red;
+    float: left;
+    display: inline-block;
+}
+
+.mainFrame {
+    overflow: hidden;
 }
 
 .contactFrame:hover{

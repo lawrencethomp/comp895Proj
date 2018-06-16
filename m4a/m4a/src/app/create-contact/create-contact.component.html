@@ -1,0 +1,52 @@
+
+<h2 id="createContact">Create a contact</h2>
+<form
+  (ngSubmit)="parseAddress(createContactForm.form);"
+  #createContactForm="ngForm">
+
+First Name: <input type="text"
+    ngModel
+    name="firstName"
+    > <br>
+
+Last Name: <input type="text"
+    ngModel
+    name="lastName"
+    > <br>
+  
+Address:  <input type="text"
+    ngModel
+    name="address"
+    > <br>
+City: <input 
+    type="text"
+    ngModel
+    name="city"
+    > <br>
+State: <input type="text"
+    ngModel
+    name="state"> <br>
+Email:   <input type="text"
+    ngModel
+    name="email"> <br>
+
+Phone Number: <input type="text"
+    ngModel
+    name="phonenumber"> <br>
+
+Preferred Pronoun: <input type="text"
+    ngModel
+    name="pronoun"> <br>
+
+AdditionalNotes: <input type="text"
+    ngModel
+    name="additionalNotes"> <br>
+    
+Preferred Name: <input type="text"
+    ngModel
+    name="preferredName"> <br>   
+
+<button>Submit</button>
+
+</form>
+

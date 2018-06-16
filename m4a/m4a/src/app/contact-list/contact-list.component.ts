@@ -13,53 +13,17 @@ export class ContactListComponent implements OnInit {
               private dataService: DataService
             ) { }
   contactsInitiated = false;
-  contacts: Object = [
-      {
-        _id : "5acd5e502bf8bd15a6d3f40a",
-        address : "36 High Street",
-        email : "lawrencethomp@gmail.com",
-        name : "Thompy_kun",
-        phonenumber : "6033692893"
-      },
-      {
-        _id : "5acd5e502bf8bd15a6d3f40a",
-        address : "36 High Street",
-        email : "lawrencethomp@gmail.com",
-        name : "Thompy_kun",
-        phonenumber : "6033692893"
-      },
-      {
-        _id : "5acd5e502bf8bd15a6d3f40a",
-        address : "36 High Street",
-        email : "lawrencethomp@gmail.com",
-        name : "Thompy_kun",
-        phonenumber : "6033692893"
-      },
-      {
-        _id : "5acd5e502bf8bd15a6d3f40a",
-        address : "36 High Street",
-        email : "lawrencethomp@gmail.com",
-        name : "Thompy_kun",
-        phonenumber : "6033692893"
-      },
-      {
-        _id : "5acd5e502bf8bd15a6d3f40a",
-        address : "36 High Street",
-        email : "lawrencethomp@gmail.com",
-        name : "Thompy_kun",
-        phonenumber : "6033692893"
-      }
-  ];
+  contacts: Object = [ ];
 
   getContacts() {
-    // return this.http
-    //   .request(`http://localhost:3000/contacts`)
-    //   .subscribe((res) => {
-    //     this.contacts = res.json();
-    //     console.log(this.contacts);
-    //     console.log(this.contacts[0].name);
-    //     console.log(this.contacts[0].phone_number);
-    //   });
+    return this.http
+      .request(`http://localhost:3000/contacts`)
+      .subscribe((res) => {
+        this.contacts = res.json();
+        console.log(this.contacts);
+        console.log(this.contacts[0].name);
+        console.log(this.contacts[0].phone_number);
+      });
   }
 
   

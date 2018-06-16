@@ -1,3 +1,7 @@
 <app-contact-list></app-contact-list>
-
-<button (click)="getContacts()" >Generate Turf</button>
+<div id="buttonField">
+<button id="generateButton" (click)="getContacts()" >Generate Turf</button>
+<button id="generateButton" 
+    routerLink="/createcontact" 
+    routerLinkActive="active" >Add Contact</button>
+</div>

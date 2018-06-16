@@ -1,0 +1,27 @@
+<div>
+<!-- make the name just be big here -->
+<div id="contactInfo">
+    <div id="firstLine">
+      Contact Info For 
+        <span id="detailName">
+          {{contactDetail.firstName}} {{contactDetail.lastName}} 
+        </span><br>
+    </div>
+    Email: {{contactDetail.email}}<br>
+    Phone Number: {{contactDetail.phoneNumber}} <br>
+    Address: {{contactDetail.address}} <br>
+    Date Added: {{contactDetail.dateAdded}}<br>
+    <!-- src= "{{apiLink}}{{apiKey}}{{queryBuilder}}" -->
+</div>
+  
+    <iframe
+      width="600"
+      height="450"
+      frameborder="0"
+      style="border:0"
+      [src]="urlSafe">
+    </iframe>
+  <button>Return to Contacts</button> 
+  <button>Delete Contact</button> 
+  <button>Edit Contact</button>
+</div>

@@ -1,32 +1,39 @@
 
-<div class="contactFrame">
+<div class="mainFrame">
+<div *ngIf="living" class="contactFrame">
+  <div class="contactTop">
     <span class="contactHeader">
-      Contact <span class="contactNum">{{ arraySpot }}</span> of 
+      Contact <span class="contactNum">{{ arraySpot + 1 }}</span> of 
     <span class="contactNum">
-      {{arrayLength}}</span>.</span>
+      {{arrayLength}}</span>.</span></div>
     
     <table class="contactClass">
     <tr>
       <td>Name: </td>
-      <td> {{ contactData.name }} </td>
+      <td> {{ contactData.firstName }} {{ contactData.lastName }} </td>
     </tr>
     <tr>
         <td>Address: </td>
       <td>{{ contactData.address }} </td>
     </tr>
-    <tr *ngIf="contactData.phone_number">
+    <tr *ngIf="contactData.phonenumber">
         <td>Phone Number: </td>
-        <td>{{ contactData.phone_number }} </td>
+        <td>{{ contactData.phonenumber }} </td>
     </tr>
     <tr *ngIf="contactData.email">
         <td>Email: </td>
         <td>{{contactData.email}} </td>
     </tr>
-    <tr *ngIf="contactData.date">
-      <td>Date: </td>
-      <td>{{ contactData.date }} </td>
-    </tr>
-  </table>
-  <button class = "contactButton" (click)="editContact()">Edit</button> 
+  </table><div class = "contactMenuFooter">
+  <a [routerLink]= "['/editcontact', contactData._id]"><button class = "contactButton" (click)="editContact()">Edit</button></a>
   <button class = "contactButton" (click)="deleteContact(contactData._id)">Delete</button>
+  <a [routerLink]="['/contactdetail', contactData._id]">
+      <button class = "contactButton" >More Info</button>
+  </a>
+  <button (click) = "parseAddress(lng)">Test Moment</button>
+</div>
+</div>
+<div class="confirmBox"> 
+  <input type="checkbox">
+</div>
 </div>

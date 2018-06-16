@@ -1,15 +1,18 @@
 <body>
 <div>
 
-<h1 id="main_logo">Medicare for All</h1>    
+<h1 class="wordart italic-outline"><span class="text">Medicare for All</span></h1>    
 <div id="nav_div">
-    <ul id="m4a_navbar">
-        <li id="m4a_navitem"><a routerLink="/login" routerLinkActive="active">Login</a></li>
-        <li id="m4a_navitem"><a routerLink="/turf" routerLinkActive="active">Generate Turf</a></li>
-        <li id="m4a_navitem"><a routerLink="/user" routerLinkActive="active">User</a></li>
-    </ul>
+    <nav role='navigation'>
+        <a class = "linkitem" routerLink="/login" routerLinkActive="active"><span class="zoom">Login</span></a>
+        <a class = "linkitem" routerLink="/turf" routerLinkActive="active"><span class="zoom">Generate Turf</span></a>
+        <a class = "linkitem" routerLink="/user" routerLinkActive="active"><span class="zoom">User</span></a>
+    </nav>
     </div>
+<div id="mainFrame">
 <router-outlet></router-outlet>
+
+</div>
 
 </div>
 

@@ -14,10 +14,22 @@ todo: write up a comment logic.
 router.post('/', function(req, res){
 
     Contact.create({
-        name: req.body.name,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         address: req.body.address,
         phonenumber: req.body.phonenumber,
-        email: req.body.email
+        email: req.body.email,
+        timeAdded: req.body.timeAdded, 
+        city: req.body.city,
+        state: req.body.state,
+        pronoun: req.body.pronoun,
+        additionalNotes: req.body.additionalNotes,
+        addedBy: req.body.addedBy,
+        lastEdited: req.body.lastEdited,
+        geoLocation_lat: req.body.geoLocation_lat,
+        geoLocation_lng: req.body.geoLocation_lng,
+        preferredName: req.body.preferredName,
+        editedBy: req.body.editedBy,
     },
     function (err, contact){
         if (err) return res.status(500)
