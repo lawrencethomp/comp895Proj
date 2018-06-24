@@ -6,8 +6,10 @@ import {Http, Response, RequestOptions, Headers} from '@angular/http';
 import { DataService } from '../data.service';
 import { Input } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { Contact } from '../contact';
 import moment = require('moment');
 import request = require('request');
+import * as _ from 'underscore';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -15,8 +17,11 @@ import request = require('request');
 })
 export class ContactComponent implements OnInit {
 
-  constructor(private http: Http) { }
-  
+  contact: Contact;
+  constructor(private http: Http,
+              private dataService: DataService
+              ) { }
+
   @Input()
   contactData: Object;
   @Input()
@@ -27,8 +32,10 @@ export class ContactComponent implements OnInit {
   contactURL = 'http://localhost:3000/contacts';
   _ref: any;
   living: boolean = true;
+  campaign: boolean = false;
+  
   ngOnInit() {
-
+    console.log(this.contactData);
   }
 
   deleteContact(id){
@@ -47,36 +54,24 @@ export class ContactComponent implements OnInit {
     // this.arrayLength --;
   }
 
+  changeStatus() {
+    if (this.campaign === false) {
+      this.dataService.addContact(this.contactData);
+      console.log(this.dataService.campaignData);
+      return this.campaign = true;
+    }
+    if (this.campaign === true) {
+      this.dataService.campaignData.splice(
+        _.indexOf(this.dataService.campaignData, _.findWhere(
+            this.dataService.campaignData, { _id : this.contactData })), 1
+      );
+      console.log(this.dataService.campaignData);
+      return this.campaign = false;
+    }
+  }
+
   editContact(){
 
   }
-  parseAddress(target: string, callback) {
-      request({
-        url: 'https://maps.googleapis.com/maps/api/geocode/json?address=86+Liberty+Street,+Manchester,+NH&key=AIzaSyBFj0EJm83C3LBt4alXp7z5kBQycQKHXF4',
-        json: true
-      }, (error, response, body) => {
-        if (error) {
-        callback('Unable to connect to Google servers.');
-      } else if (body.status === 'ZERO_RESULTS') {
-        callback('Unable to find that address.');
-      } else if (body.status === 'OK') {
-        console.log('here');
-        const lat = body.results[0].geometry.location.lat;
-        console.log(lat);
-        callback(undefined, {
-          address : body.results[0].formatted_address
-        });
-      }
-    //   return this.http
-    //     .get('https://maps.googleapis.com/maps/api/geocode/json?address=86+Liberty+Street,+Manchester,+NH&key=AIzaSyBFj0EJm83C3LBt4alXp7z5kBQycQKHXF4')
-    //   .subscribe(res => {
-    //     console.log(res._body.results);
-    //   },
-    //   err => {
-    //     console.log('Error occurred');
-    //   }
-    // );
-    // }
 
-});
-  }}
+}

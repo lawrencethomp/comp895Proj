@@ -9,6 +9,9 @@
     
     <table class="contactClass">
     <tr>
+      <td>{{campaign}}</td>
+    </tr>
+    <tr>
       <td>Name: </td>
       <td> {{ contactData.firstName }} {{ contactData.lastName }} </td>
     </tr>
@@ -34,6 +37,8 @@
 </div>
 </div>
 <div class="confirmBox"> 
-  <input type="checkbox">
+  <input
+        (click) = "changeStatus()" 
+        type="checkbox">
 </div>
 </div>

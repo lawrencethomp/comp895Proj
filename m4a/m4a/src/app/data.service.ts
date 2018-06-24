@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import {EventEmitter} from '@angular/core';
 import { Http } from '@angular/http';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-//import {Rx} from 'rxjs';
+// import {Rx} from 'rxjs';
 import {Observable} from 'rxjs/Observable';
 import { Output } from '@angular/core';
 
@@ -11,6 +11,8 @@ import { Output } from '@angular/core';
 export class DataService {
 data: Object;
 contactsInitiated = false;
+campaignData = [];
+
   constructor(private http: Http) { }
   getContacts() {
     // return this.http
@@ -27,11 +29,20 @@ contactsInitiated = false;
 
   @Output() loadContacts: EventEmitter<boolean> = new EventEmitter();
 
-  initContacts(){
+
+
+  addContact(contact) {
+    this.campaignData.push(contact);
+  }
+
+  // deleteContact()
+
+  initContacts() {
     this.contactsInitiated = true;
     this.loadContacts.emit(this.contactsInitiated);
-
   }
+
+
 
   private handleError(error: Response) {
     return Observable.throw(error.statusText);

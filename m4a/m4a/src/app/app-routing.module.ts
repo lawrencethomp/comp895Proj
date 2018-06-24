@@ -1,3 +1,4 @@
+import { CampaignComponent } from './campaign/campaign.component';
 import { EditContactComponent } from './edit-contact/edit-contact.component';
 import { ContactdetailComponent } from './contactdetail/contactdetail.component';
 import { NgModule } from '@angular/core';
@@ -48,7 +49,10 @@ const routes: Routes = [
   {
     path: 'editcontact/:id',
     component: EditContactComponent
-
+  },
+  {
+    path: 'campaign',
+    component: CampaignComponent
   }
 ];
 

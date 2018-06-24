@@ -16,7 +16,7 @@ import { DataService } from '../data.service';
 export class GenerateTurfComponent implements OnInit {
 
   constructor(
-      private http: Http, 
+      private http: Http,
       private dataService: DataService
   ) { }
   data: Object;
@@ -24,11 +24,10 @@ export class GenerateTurfComponent implements OnInit {
   }
 
   getContacts() {
-    console.log('we are fucking talking');
     this.dataService.initContacts();
   }
   // send request to grab contacts
-  contactRequest(){}
+  contactRequest() { }
  
 
 }

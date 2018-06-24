@@ -20,13 +20,8 @@ export class ContactListComponent implements OnInit {
       .request(`http://localhost:3000/contacts`)
       .subscribe((res) => {
         this.contacts = res.json();
-        console.log(this.contacts);
-        console.log(this.contacts[0].name);
-        console.log(this.contacts[0].phone_number);
       });
   }
-
-  
 
   ngOnInit() {
     this.dataService.loadContacts.subscribe(contactsInitiated => {

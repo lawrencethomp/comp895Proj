@@ -20,6 +20,7 @@ import { EditContactComponent } from './edit-contact/edit-contact.component';
 import { RandomQuoteComponent } from './random-quote/random-quote.component';
 import { CreateContactComponent } from './create-contact/create-contact.component';
 import { ContactdetailComponent } from './contactdetail/contactdetail.component';
+import { CampaignComponent } from './campaign/campaign.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ContactdetailComponent } from './contactdetail/contactdetail.component'
     EditContactComponent,
     RandomQuoteComponent,
     CreateContactComponent,
-    ContactdetailComponent
+    ContactdetailComponent,
+    CampaignComponent
   ],
   imports: [
     BrowserModule,
