@@ -1,19 +1,51 @@
-<body>
-<div>
+<!DOCTYPE html>
+<html>
+    <head>
+       <link href="https://afeld.github.io/emoji-css/emoji.css"
+            rel="stylesheet">
 
-<h1 class="wordart italic-outline"><span class="text">Medicare for All</span></h1>    
-<div id="nav_div">
-    <nav role='navigation'>
-        <a class = "linkitem" routerLink="/login" routerLinkActive="active"><span class="zoom">Login</span></a>
-        <a class = "linkitem" routerLink="/turf" routerLinkActive="active"><span class="zoom">Generate Turf</span></a>
-        <a class = "linkitem" routerLink="/user" routerLinkActive="active"><span class="zoom">User</span></a>
-    </nav>
-    </div>
-<div id="mainFrame">
-<router-outlet></router-outlet>
+        <meta charset="utf-8">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <section class= "section">
+            <div class= "container">
+                    <div id="nav_div">
+                            <nav role='navigation'>
+                                <a
+                                    class = "linkitem shake"
+                                    routerLink="/login"
+                                    routerLinkActive="active"><span class="zoom">Login</span>
+                                    <i class="em em-heavy_check_mark"></i>
+                                </a>
+                                <a
+                                    class = "linkitem shake"
+                                    routerLink="/turf"
+                                    routerLinkActive="active"><span class="zoom">Generate Turf
+                                            <i class="em em-athletic_shoe"></i>
+                                    </span>
+                                </a>
+                                <a
+                                    class = "linkitem shake"
+                                    routerLink="/user"
+                                    routerLinkActive="active"><span class="zoom">User
+                                            <i class="em em-i_love_you_hand_sign"></i>
+                                    </span></a>
+                            </nav>
+            </div>
+                <section class="hero">
+                    <h1 class="wordart italic-outline title">
+                        <span class="text">Medicare for All</span>
+                    </h1>
+                </section>
+            <div id="mainFrame">
 
-</div>
+                <router-outlet></router-outlet>
 
-</div>
+            </div>
 
-</body>
+            </div>
+        </section>
+    </body>
+</html>

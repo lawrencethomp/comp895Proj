@@ -1,6 +1,7 @@
 import { DataService } from './data.service';
 import { GenerateTurfComponent } from './generate-turf/generate-turf.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { Routes,
          RouterModule
@@ -41,6 +42,7 @@ import { CampaignComponent } from './campaign/campaign.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     RouterModule,
     HttpModule,
     routing,
