@@ -22,7 +22,7 @@ export class EditContactComponent implements OnInit {
     this.contactId = this.route.snapshot.params.id;
     this.getContactDetail(this.contactId);
   }
-  getContactDetail(contactId) {
+  getContactDetail(contactId: any) {
     return this.http
       .request(`http://localhost:3000/contacts/${contactId}`)
       .subscribe((res) => {

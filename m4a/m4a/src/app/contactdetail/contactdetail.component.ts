@@ -20,6 +20,7 @@ import { SafeResourceUrl } from '@angular/platform-browser/src/security/dom_sani
 })
 export class ContactdetailComponent implements OnInit {
 
+  //TODO: create an object that uses this.
   apiLink = `https://www.google.com/maps/embed/v1/place?key=`;
   queryBuilder: string;
   apiKey = `AIzaSyBFj0EJm83C3LBt4alXp7z5kBQycQKHXF4`;
@@ -60,7 +61,6 @@ export class ContactdetailComponent implements OnInit {
         }
         this.queryBuilder = `&q=${this.lat},${this.lng}`;
         this.builtLink = `${this.apiLink}${this.apiKey}${this.queryBuilder}`;
-        console.log('builtlink' + this.builtLink);
         this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.builtLink);
         console.log(this.contactDetail);
       });

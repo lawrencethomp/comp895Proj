@@ -1,4 +1,11 @@
-
+agm-map {
+    height: 300px;
+  }
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
 
 ul#m4a_navbar {
     text-align: center;
@@ -56,9 +63,6 @@ a:hover {
 
 }
 
-/* body {
-    margin: 20px;
-} */
 
 #main_logo {
     color: white;

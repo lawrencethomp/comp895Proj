@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+import { User } from '../_models/index';
+import { UserService } from '../_services/index';
 @Component({
+  moduleId: module.id,
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
@@ -24,13 +26,26 @@ export class HomeComponent implements OnInit {
     "\"Let me be unambiguous. I prefer not to be photographed. \"Thomas Pynchon"
   ];
 
-  constructor() { }
 
   ngOnInit() {
     this.quote = this.randomQuote();
+    //this.loadAllUsers();
   }
 
-
+  currentUser: User;
+    users: User[] = [];
+ 
+    constructor(private userService: UserService) {
+        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    }
+ 
+    deleteUser(_id: string) {
+        this.userService.delete(_id).subscribe(() => { this.loadAllUsers() });
+    }
+ 
+    private loadAllUsers() {
+        this.userService.getAll().subscribe(users => { this.users = users; });
+    }
 
   randomQuote() {
     return this.quotes[

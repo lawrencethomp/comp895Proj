@@ -81,11 +81,11 @@ export class CreateContactComponent implements OnInit {
 
   }
 
-  async parseAddress(form: NgForm, callback) {
+  async parseAddress(form: NgForm, callback: any) {
     request({
       url: this.geocodeAddressBuilder(form),
       json: true
-    }, (error, response, body) => {
+    }, (error: any, response: any, body: any) => {
       if (error) {
       callback('Unable to connect to Google servers.');
     } else if (body.status === 'ZERO_RESULTS') {

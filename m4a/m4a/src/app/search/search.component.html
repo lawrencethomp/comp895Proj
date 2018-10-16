@@ -1,0 +1,27 @@
+
+
+<input
+    #firstName
+    type="text"
+    placeholder="First Name..."
+    class="groove">
+<input
+    #lastName
+    type="text"
+    placeholder="Last Name..."
+    class="groove">
+
+<button id ="searchButton"
+        type="button"
+        (click) ="searchDB(firstName.value, lastName.value)">
+<i class="fa fa-search" aria-hidden="true"></i>
+</button>
+
+<div ng-if="searchCompleted = true"> 
+    <app-contact
+        *ngFor="let contact of contacts; index as i; let l = count"
+        [contactData]=contact
+        [arraySpot]=i
+        [arrayLength]=contacts.length>
+    </app-contact>
+</div>

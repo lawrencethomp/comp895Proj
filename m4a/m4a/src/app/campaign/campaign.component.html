@@ -1,3 +1,33 @@
-<p>
-  campaign works!
-</p>
+<!-- Should be a google map created by entering a bunch of points in -->
+
+<div>
+<!-- this is the map -->
+<!-- <iframe
+  width="600"
+  height="450"
+  frameborder="0"
+  style="border:0"
+  [src]="urlSafe"
+  > -->
+  <!-- [src]="urlSafe" -->
+
+<!-- </iframe> -->
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+
+<button>Return to Contacts</button> 
+<button>Delete Contact</button> 
+<button>Edit Contact</button>
+</div>
+
+
+
+
+<!-- Listing of all the points in order that the
+person is going to go to. -->
+You are visiting the following people.
+<li *ngFor="let user of campaignContacts ">
+  {{user.firstName}}, {{user.lastName}}
+
+</li>

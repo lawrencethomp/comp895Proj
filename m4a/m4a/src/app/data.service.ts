@@ -11,7 +11,9 @@ import { Output } from '@angular/core';
 export class DataService {
 data: Object;
 contactsInitiated = false;
+campaignMapString = false;
 campaignData = [];
+queryBuilder: string = ''
 
   constructor(private http: Http) { }
   getContacts() {
@@ -28,8 +30,21 @@ campaignData = [];
   }
 
   @Output() loadContacts: EventEmitter<boolean> = new EventEmitter();
+  @Output() generateQueryString: EventEmitter<boolean> = new EventEmitter();
 
+  buildQueryInformation(campaignContacts) {
+    let queryString: string = '&q=';
+    for  (var i = 0; i < campaignContacts.length; i++) {
+      queryString += `${campaignContacts[i].geoLocation_lat},${campaignContacts[i].geoLocation_lng}`;
+    }
+    this.queryBuilder = queryString;
+  }
 
+  sendQueryInformation() {
+    this.campaignMapString = true;
+    this.buildQueryInformation(this.campaignData);
+    this.generateQueryString.emit(this.campaignMapString);
+  }
 
   addContact(contact) {
     this.campaignData.push(contact);
@@ -48,5 +63,5 @@ campaignData = [];
     return Observable.throw(error.statusText);
   }
 
-  
+
 }
