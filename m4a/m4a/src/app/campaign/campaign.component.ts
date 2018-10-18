@@ -28,19 +28,17 @@ export class CampaignComponent implements OnInit {
   builtLink = `${this.apiLink}${this.apiKey}${this.queryBuilder}`;
   url: string = this.builtLink;
   urlSafe: SafeResourceUrl;
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+
 
   // @ViewChild('gmap') gmapElement: any;
   // map: google.maps.Map;
 
   ngOnInit() {
     this.getCampaign();
+    this.parsefloatify();
     this.queryBuilder = this.buildQueryInformation(this.campaignContacts);
     this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.builtLink);
-    console.log(this.campaignContacts);
-    console.log(`${this.builtLink}`);
-    console.log(`the link afterwards ${this.builtLink}`);
+    console.table(this.campaignContacts);
     // var mapProp = {
     //   center: new google.maps.LatLng(18.5793, 73.8143),
     //   zoom: 15,
@@ -60,6 +58,14 @@ export class CampaignComponent implements OnInit {
     this.campaignContacts = this.dataService.campaignData;
   }
 
+  parsefloatify() {
+    for (var i = 0; i < this.campaignContacts.length; i++) {
+      this.campaignContacts[i]["fLat"] = parseFloat(this.campaignContacts[i].geoLocation_lat);
+      this.campaignContacts[i]["fLng"] = parseFloat(this.campaignContacts[i].geoLocation_lng);
+      console.log(`worked ${this.campaignContacts[i]["fLat"]}`);
+    }
+
+  }
 
    buildQueryInformation(campaignContacts) {
     let queryString: string = '';

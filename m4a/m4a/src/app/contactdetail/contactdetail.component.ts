@@ -27,8 +27,10 @@ export class ContactdetailComponent implements OnInit {
   builtLink = `${this.apiLink}${this.apiKey}${this.queryBuilder}`;
   url: string = this.builtLink;
   urlSafe: SafeResourceUrl;
-  lat: string;
-  lng: string;
+  lat: number;
+  lng: number;
+  // lat: string;
+  // lng: string;
 
   contactId: string;
   contactDetail: Object = { };
@@ -54,10 +56,12 @@ export class ContactdetailComponent implements OnInit {
       .subscribe((res) => {
         this.contactDetail = res.json();
         if (this.contactDetail.hasOwnProperty('geoLocation_lat')) {
-          this.lat = this.contactDetail['geoLocation_lat'];
+          this.lat = parseFloat(this.contactDetail['geoLocation_lat']);
+          console.log(this.lat);
         }
         if (this.contactDetail.hasOwnProperty('geoLocation_lng')) {
-          this.lng = this.contactDetail['geoLocation_lng'];
+          this.lng = parseFloat(this.contactDetail['geoLocation_lng']);
+          console.log(this.lng);
         }
         this.queryBuilder = `&q=${this.lat},${this.lng}`;
         this.builtLink = `${this.apiLink}${this.apiKey}${this.queryBuilder}`;

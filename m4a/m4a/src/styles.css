@@ -1,6 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
-@import '~bulma/css/bulma.min.css';
-@import '~font-awesome/css/font-awesome.min.css';
+
 html {
     background-color: #87CEFA;
 }
@@ -9,3 +7,11 @@ body {
     font-size: 100%;
     font-family: monospace;
 }
+
+
+/* You can add global styles to this file, and also import other style files */
+/* @import '~bulma/css/bulma.min.css';
+@import '~font-awesome/css/font-awesome.min.css'; */
+agm-map {
+    height: 300px;
+  }

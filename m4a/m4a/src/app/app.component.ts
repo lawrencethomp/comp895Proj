@@ -18,7 +18,7 @@ import { AgmMap, GoogleMapsAPIWrapper } from '@agm/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(@Inject(DOCUMENT) private document: Document, location: Location, private router: Router){}
+  //constructor(@Inject(DOCUMENT) private document: Document, location: Location, private router: Router){}
   title = 'app';
   route: string;
 
@@ -27,7 +27,6 @@ export class AppComponent {
   checkLink() {
     this.route = location.pathname;
   console.log(this.route);
-  console.log(this.document.location.href);
   }
 }
 
