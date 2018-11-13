@@ -7,7 +7,7 @@ import { first } from 'rxjs/operators/first';
 @Component({
   selector: 'app-create-contact',
   templateUrl: './create-contact.component.html',
-  styleUrls: ['./create-contact.component.css']
+  styleUrls: ['./create-contact.component.scss']
 })
 export class CreateContactComponent implements OnInit {
   contactLat: string;
@@ -58,10 +58,17 @@ export class CreateContactComponent implements OnInit {
       additionalNotes: form.value.additionalNotes,
       geoLocation_lat: lat,
       geoLocation_lng: lng,
+      preferences: {
+        votedInMidterms : form.value.voted,
+        politicalViews : form.value.politicalView,
+        supportM4A : form.value.supportM4A,
+        supportACA : form.value.supportACA,
+        incomeLevel: form.value.incomeLevel,
+      },
       addedBy: 'LT',
     })
     .subscribe( res => {
-        console.log(res);
+        console.table(res);
       },
       err => {
         console.log('Error occurred');
@@ -76,7 +83,6 @@ export class CreateContactComponent implements OnInit {
     const state = `+${form.value.state.toUpperCase()}`;
     const key = `&key=AIzaSyBFj0EJm83C3LBt4alXp7z5kBQycQKHXF4`;
     const geocodeCall = `${url}${address}${city}${state}${key}`;
-    console.log(geocodeCall);
     return geocodeCall;
 
   }
@@ -91,7 +97,6 @@ export class CreateContactComponent implements OnInit {
     } else if (body.status === 'ZERO_RESULTS') {
       callback('Unable to find that address.');
     } else if (body.status === 'OK') {
-      console.log('here');
       this.contactLat = body.results[0].geometry.location.lat;
       this.contactLng = body.results[0].geometry.location.lng;
       this.createContact(form);

@@ -1,4 +1,7 @@
-
+@import '../node_modules/bulma/css/bulma.min.css';
+@import '../node_modules/font-awesome/css/font-awesome.min.css';
+@import './spinner.scss';
+@import '../node_modules/animate.css/animate.min.css';
 html {
     background-color: #87CEFA;
 }
@@ -8,10 +11,15 @@ body {
     font-family: monospace;
 }
 
+.center {
+    margin: auto;
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+}
 
 /* You can add global styles to this file, and also import other style files */
-/* @import '~bulma/css/bulma.min.css';
-@import '~font-awesome/css/font-awesome.min.css'; */
+
 agm-map {
     height: 300px;
   }

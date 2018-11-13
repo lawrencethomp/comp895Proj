@@ -10,10 +10,11 @@ import { Contact } from '../contact';
 import moment = require('moment');
 import request = require('request');
 import * as _ from 'underscore';
+import { Observable, observable } from 'rxjs';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
 
@@ -33,9 +34,25 @@ export class ContactComponent implements OnInit {
   _ref: any;
   living: boolean = true;
   campaign: boolean = false;
-  
+  triggerLengthChange: boolean = false;
   ngOnInit() {
-    console.log(this.contactData);
+    ///Code for the observables. doesnt work yet.
+    // this.dataService.sendContactLength.subscribe(triggerLengthChange =>{
+    //   this.triggerLengthChange = triggerLengthChange;
+    //   // contactsLengthServiceNo = this.dataService.contactsLengthServiceNo;
+    //   if(this.triggerLengthChange === true) {
+    //     console.log(`array length ${this.arrayLength}`)
+    //     this.arrayLength--;
+    //     console.log(`array length ${this.arrayLength}`)
+    //     // if (this.arraySpot > contactsLengthServiceNo) {
+    //     //   console.log(`array length ${this.arraySpot}`)
+    //     //   this.arraySpot--;
+    //     //   console.log(`array length ${this.arraySpot}`)
+    //     // }
+    //     this.triggerLengthChange = false;
+    //   }
+    // }
+    // )
   }
 
   deleteContact(id){
@@ -43,6 +60,9 @@ export class ContactComponent implements OnInit {
       alert('contact deleted');
       this.living = false;
       this.arrayLength --;
+      this.dataService.contactsLengthServiceNo = this.arraySpot;
+      this.dataService.triggerLengthChange = true;
+      console.log(`changed length ${this.dataService.triggerLengthChange}`);
       return this.http
         .delete(`${this.baseURL}/${id}`)
         .subscribe(res => console.log(res.json()))
@@ -69,6 +89,21 @@ export class ContactComponent implements OnInit {
       return this.campaign = false;
     }
   }
+
+
+  // Create an Observable that will listen to the dataService
+  observeArray = new Observable((observer) => {
+    // use the next and error callbacks, passed
+    // when the consumer subscribes
+    // const {next, error} = observer;
+
+    if (this.dataService.decreasedState === true) {
+      // need to have an obj item that shows what array got deleted here.
+      observer.next(this.arrayLength--);
+    }
+
+  })
+
 
   editContact(){
 

@@ -8,7 +8,7 @@ import moment = require('moment');
 @Component({
   selector: 'app-edit-contact',
   templateUrl: './edit-contact.component.html',
-  styleUrls: ['./edit-contact.component.css']
+  styleUrls: ['./edit-contact.component.scss']
 })
 export class EditContactComponent implements OnInit {
   contactId: string;

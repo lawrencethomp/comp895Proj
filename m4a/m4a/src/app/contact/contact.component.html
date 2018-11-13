@@ -1,14 +1,15 @@
-<article class="media">
-  <div class="container">
-    <div class="mainFrame">
+<div class="card">
       <div *ngIf="living" class="contactFrame">
-        <figure class="media-left contactTop">
+          <header class="card-header">
           <span class="contactHeader">
-            Contact <span class="contactNum">{{ arraySpot + 1 }}</span> of
+            Contact <span class="contactNum">
+              <!-- {{ arraySpot + 1 }} -->
+            </span> of
           <span class="contactNum">
-            {{arrayLength}}</span>.</span>
-        </figure>
-        <div class="media-content">
+            <!-- {{arrayLength}} -->
+          </span>.</span>
+          </header>
+          <div class="card-content">
           <div class="content">
           <table class="contactClass">
             <tr>
@@ -33,21 +34,18 @@
           </table>
           </div>
         </div>
-        <nav class = "level is-mobile contactMenuFooter">
+        <footer class="card-footer">  
+
         <a class= "level-item" [routerLink]= "['/editcontact', contactData._id]"><button class = "contactButton" (click)="editContact()">Edit</button></a>
         <button class = "contactButton" (click)="deleteContact(contactData._id)">Delete</button>
         <a class= "level-item" [routerLink]="['/contactdetail', contactData._id]">
             <button class = "contactButton" >More Info</button>
         </a>
         <button class= "level-item" (click) = "parseAddress(lng)">Test Moment</button>
-      </nav>
-      </div>
-      <div class="media-right confirmBox">
         <p>Add to campaign</p>
         <input
               (click) = "changeStatus()"
               type="checkbox">
+            </footer>
       </div>
-    </div>
-  </div>
-</article>
+</div>

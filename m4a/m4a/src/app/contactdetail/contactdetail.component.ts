@@ -16,7 +16,7 @@ import { SafeResourceUrl } from '@angular/platform-browser/src/security/dom_sani
 @Component({
   selector: 'app-contactdetail',
   templateUrl: './contactdetail.component.html',
-  styleUrls: ['./contactdetail.component.css']
+  styleUrls: ['./contactdetail.component.scss']
 })
 export class ContactdetailComponent implements OnInit {
 

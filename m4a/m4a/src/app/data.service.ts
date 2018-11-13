@@ -14,7 +14,17 @@ contactsInitiated = false;
 campaignMapString = false;
 campaignData = [];
 queryBuilder: string = ''
+pageNoServiceNo: number = 1;
+changingPage: boolean = false;
+triggerChange: boolean = false;
 
+// show the changes in the pageNumbers
+triggerLengthChange: boolean;
+contactsLengthServiceNo: number;
+
+
+decreasedState: boolean = false;
+deletedItem: number;
   constructor(private http: Http) { }
   getContacts() {
     // return this.http
@@ -31,6 +41,14 @@ queryBuilder: string = ''
 
   @Output() loadContacts: EventEmitter<boolean> = new EventEmitter();
   @Output() generateQueryString: EventEmitter<boolean> = new EventEmitter();
+  @Output() paginateData: EventEmitter<boolean> = new EventEmitter();
+  
+  @Output() sendContactLength: EventEmitter<boolean> = new EventEmitter();
+
+  sendContactLengthInfo(){
+    // this.triggerLengthChange = true;
+    this.sendContactLength.emit(this.triggerLengthChange);
+  }
 
   buildQueryInformation(campaignContacts) {
     let queryString: string = '&q=';
@@ -44,6 +62,24 @@ queryBuilder: string = ''
     this.campaignMapString = true;
     this.buildQueryInformation(this.campaignData);
     this.generateQueryString.emit(this.campaignMapString);
+  }
+
+  // changePage() {
+  //   if (this.changingPage === true) {
+  //     this.changingPage = false;
+  //   }
+    
+  // }
+
+  paginateMongoForward() {
+    console.log('here')
+    this.changingPage = true;
+    this.paginateData.emit(this.changingPage);
+  }
+
+  paginateMongoBackward() {
+    this.changingPage = true;
+    this.paginateData.emit(this.changingPage);
   }
 
   addContact(contact) {
