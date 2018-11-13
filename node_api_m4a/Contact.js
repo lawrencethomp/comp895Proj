@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');  
-const ContactSchema = new mongoose.Schema({  
+const mongoose = require('mongoose');
+const ContactSchema = new mongoose.Schema({
   firstName: String,
   lastName: String,
   address: String,
@@ -8,7 +8,6 @@ const ContactSchema = new mongoose.Schema({
   timeAdded: String,
   pronoun: String,
   additionalNotes: String,
-  addedBy: String,
   city: String,
   state: String,
   lastEdited: String,
@@ -16,6 +15,14 @@ const ContactSchema = new mongoose.Schema({
   geoLocation_lng : String,
   preferredName: String,
   editedBy: String,
+  preferences: {
+    supportACA: String,
+    votedInMidterms : String,
+    politicalViews : String,
+    supportM4A : String,
+    incomeLevel: String,
+  },
+  addedBy: String,
 });
 mongoose.model('Contact', ContactSchema);
 module.exports = mongoose.model('Contact');

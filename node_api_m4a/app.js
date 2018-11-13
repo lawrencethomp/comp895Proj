@@ -10,5 +10,7 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 
 var ContactController = require('./ContactController');
+var SearchController = require('./SearchController');
 app.use('/contacts', ContactController);
+app.use('/search', SearchController);
 module.exports = app;
