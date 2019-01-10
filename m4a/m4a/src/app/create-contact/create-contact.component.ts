@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Http, Response} from '@angular/http';
-import moment = require('moment');
-import request = require('request');
+import * as moment from 'moment';
+import * as request from 'request';
 import { first } from 'rxjs/operators/first';
 @Component({
   selector: 'app-create-contact',
@@ -41,6 +41,7 @@ export class CreateContactComponent implements OnInit {
  async createContact(form: NgForm) {
     const lat = this.contactLat;
     const lng = this.contactLng;
+  
     const now: string = moment().format().toString();
     // const lat = this.parseAddress('lat', 'callback');
     // const lng = this.parseAddress('lng', 'callback');

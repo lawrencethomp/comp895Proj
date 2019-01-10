@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../contact';
-import moment = require('moment');
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-edit-contact',

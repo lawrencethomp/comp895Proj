@@ -7,8 +7,8 @@ import { DataService } from '../data.service';
 import { Input } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Contact } from '../contact';
-import moment = require('moment');
-import request = require('request');
+// import moment = require('moment');
+// import request = require('request');
 import * as _ from 'underscore';
 import { Observable, observable } from 'rxjs';
 @Component({
@@ -108,5 +108,9 @@ export class ContactComponent implements OnInit {
   editContact(){
 
   }
+
+  
+
+  
 
 }

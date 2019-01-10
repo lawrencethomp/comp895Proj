@@ -10,6 +10,7 @@ var Contact = require('./Contact');
     todo: write up a comment logic.
 
 */
+
 router.post('/', function(req, res){
     Contact.create({
         firstName: req.body.firstName,
@@ -48,6 +49,7 @@ router.post('/', function(req, res){
 
 // code probably goes here!
 router.get('/', function (req, res) {
+    console.log('request started');
     var pageNo = parseInt(req.query.pageNo);
         var size = parseInt(req.query.size)
         var query = {}

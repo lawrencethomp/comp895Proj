@@ -14,6 +14,8 @@ import { GenerateTurfComponent } from './generate-turf/generate-turf.component';
 import { LandingComponent } from './landing/landing.component';
 import { CreateContactComponent } from './create-contact/create-contact.component';
 import { SearchComponent } from './search/search.component';
+import { LiteratureComponent } from './literature/literature.component';
+import { GraphComponent } from './graph/graph.component';
 
 const routes: Routes = [
   {
@@ -43,6 +45,10 @@ const routes: Routes = [
     component: ViewUserComponent
   },
   {
+    path: 'graph',
+    component: GraphComponent
+  },
+  {
     path: 'turf',
     component: GenerateTurfComponent
   },
@@ -67,9 +73,13 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
+    path: 'literature',
+    component: LiteratureComponent
+  },
+  {
     path: '**',
     redirectTo: ''
-  }
+  },
 ];
 
 // @NgModule({

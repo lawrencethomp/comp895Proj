@@ -10,26 +10,34 @@
           </span>.</span>
           </header>
           <div class="card-content">
-          <div class="content">
-          <table class="contactClass">
+          <div class="">
+          <table id="open-modal" class="contactClass">
             <tr>
               <td>{{campaign}}</td>
             </tr>
             <tr>
               <td>Name: </td>
-              <td> {{ contactData.firstName }} {{ contactData.lastName }} </td>
+              <td> Lawrence Thompson </td>
+
+              <!-- <td> {{ contactData.firstName }} {{ contactData.lastName }} </td> -->
             </tr>
             <tr>
                 <td>Address: </td>
-              <td>{{ contactData.address }} </td>
+                <td>86 Liberty St.</td>
+
+              <!-- <td>{{ contactData.address }} </td> -->
             </tr>
-            <tr *ngIf="contactData.phonenumber">
+            <!-- <tr *ngIf="contactData.phonenumber"> -->
+              <tr>
                 <td>Phone Number: </td>
-                <td>{{ contactData.phonenumber }} </td>
+                <!-- <td>{{ contactData.phonenumber }} </td> -->
+                <td>603-369-2893 </td>
             </tr>
-            <tr *ngIf="contactData.email">
+            <!-- <tr *ngIf="contactData.email"> -->
+              <tr>
                 <td>Email: </td>
-                <td>{{contactData.email}} </td>
+                <td>LawrenceThomp@gmail.com</td>
+                <!-- <td>{{contactData.email}} </td> -->
             </tr>
           </table>
           </div>
@@ -41,11 +49,14 @@
         <a class= "level-item" [routerLink]="['/contactdetail', contactData._id]">
             <button class = "contactButton" >More Info</button>
         </a>
-        <button class= "level-item" (click) = "parseAddress(lng)">Test Moment</button>
-        <p>Add to campaign</p>
+        <a class= "level-item ">
+        <button class = "contactButton">Add to campaign
         <input
+        
               (click) = "changeStatus()"
               type="checkbox">
+        </button>
+        </a>
             </footer>
       </div>
 </div>

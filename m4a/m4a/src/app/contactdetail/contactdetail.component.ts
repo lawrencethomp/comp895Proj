@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Http } from '@angular/http';
 
-import googleMapsClient = require('@google/maps');
+// import googleMapsClient = require('@google/maps');
 import { GoogleMaps } from 'svelte-google-maps-embed';
 import {
   BrowserModule,

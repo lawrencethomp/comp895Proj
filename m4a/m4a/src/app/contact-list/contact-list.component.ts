@@ -19,6 +19,8 @@ export class ContactListComponent implements OnInit {
   changingPage: boolean = false;
   triggerChange: boolean = false;
   direction: string;
+    triggerLengthChange: boolean = false;
+
   // sends the contacts in length
 
   // contact list is going to need the observable. a million contacts straight up sucks to have subscribables.
@@ -75,6 +77,9 @@ export class ContactListComponent implements OnInit {
           this.getContacts();
       }
     });
+    this.dataService.sendContactLength.subscribe(triggerLengthChange => {
+      
+    })
   }
 
 }

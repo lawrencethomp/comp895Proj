@@ -8,22 +8,21 @@ var bodyParser = require('body-parser');
 var Contact = require('./Contact');
 
 router.get('/', function(req, res) {
-    var first = req.query.firstName;
-    var last = req.query.lastName;
-    var supportACA = req.query.supportACA;
-    var supportM4A = req.query.supportM4A;
-    var incomeLevel = req.query.incomeLevel;
-    var politicalView = req.query.politicalView;
-    var voted = req.query.voted;
-    console.log(req.query);
+    var firstName = req.query.firstName;
+    var lastName = req.query.lastName;
+    // var supportACA = req.query.supportACA;
+    // var supportM4A = req.query.supportM4A;
+    // var incomeLevel = req.query.incomeLevel;
+    // var politicalView = req.query.politicalView;
+    // var voted = req.query.voted;
     Contact.find(
-        {"firstName": first,
-        "lastName": last,
-        "preferences.supportACA" : supportACA,
-        "preferences.supportM4A" : supportM4A,
-        "preferences.incomeLevel": incomeLevel,
-        "preferences.politicalView": politicalView,
-        "preferences.voted": voted,
+        {"firstName": firstName,
+        "lastName": lastName,
+        // "preferences.supportACA" : supportACA,
+        // "preferences.supportM4A" : supportM4A,
+        // "preferences.incomeLevel": incomeLevel,
+        // "preferences.politicalView": politicalView,
+        // "preferences.voted": voted,
     },
         function(err, contacts) {
             if (err) return res.status(500)

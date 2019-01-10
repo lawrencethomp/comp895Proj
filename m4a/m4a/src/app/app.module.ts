@@ -29,6 +29,8 @@ import { CampaignComponent } from './campaign/campaign.component';
 import { SearchComponent } from './search/search.component';
 import { RegisterComponent } from './register/register.component';
 import { AgmCoreModule } from '@agm/core';
+import { LiteratureComponent } from './literature/literature.component';
+import { GraphComponent } from './graph/graph.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { AgmCoreModule } from '@agm/core';
     ContactdetailComponent,
     CampaignComponent,
     SearchComponent,
-    RegisterComponent
+    RegisterComponent,
+    LiteratureComponent,
+    GraphComponent
   ],
   imports: [
     BrowserModule,
