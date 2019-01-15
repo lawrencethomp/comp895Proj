@@ -9,7 +9,6 @@
 # dependencies
 /node_modules
 /m4a/m4a/node_modules
-/node_api_m4a/node_modules
 
 # IDEs and editors
 /.idea
