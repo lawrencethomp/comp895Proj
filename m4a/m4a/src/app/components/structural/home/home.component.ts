@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { User } from '../_models/index';
-import { UserService } from '../_services/index';
+
+import { User } from '../../login-related/_models/index';
+import { UserService } from '../../login-related/_services/index';
 @Component({
   moduleId: module.id,
   selector: 'app-home',

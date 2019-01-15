@@ -7,7 +7,7 @@ import {
     RequestOptions, 
     Headers
 } from '@angular/http';
-import { DataService } from '../data.service';
+import { DataService } from '../../services/data.service';
 @Component({
   selector: 'app-generate-turf',
   templateUrl: './generate-turf.component.html',
@@ -33,7 +33,6 @@ export class GenerateTurfComponent implements OnInit {
     if (direction === "forward") {
       this.dataService.paginateMongoForward();
     }
-
     if (direction === "backward") {
       this.dataService.paginateMongoBackward();
     }

@@ -2,7 +2,7 @@ import { NgForm } from '@angular/forms';
 import { Http } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Contact } from '../contact';
+import { Contact } from '../../models/contact';
 import * as moment from 'moment';
 
 @Component({

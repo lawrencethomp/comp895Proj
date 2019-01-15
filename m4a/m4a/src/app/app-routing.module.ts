@@ -1,21 +1,21 @@
-import { CampaignComponent } from './campaign/campaign.component';
-import { EditContactComponent } from './edit-contact/edit-contact.component';
-import { ContactdetailComponent } from './contactdetail/contactdetail.component';
+import { CampaignComponent } from './components/structural/campaign/campaign.component';
+import { EditContactComponent } from './components/edit-contact/edit-contact.component';
+import { ContactdetailComponent } from './components/contact-related/contactdetail/contactdetail.component';
 import { NgModule } from '@angular/core';
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ContactComponent } from './contact/contact.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/index';
-import { RegisterComponent } from './register/index';
-import { AuthGuard } from './_guards/index';
-import { ViewUserComponent } from './view-user/view-user.component';
-import { GenerateTurfComponent } from './generate-turf/generate-turf.component';
-import { LandingComponent } from './landing/landing.component';
-import { CreateContactComponent } from './create-contact/create-contact.component';
-import { SearchComponent } from './search/search.component';
-import { LiteratureComponent } from './literature/literature.component';
-import { GraphComponent } from './graph/graph.component';
+import { ContactComponent } from './components/contact-related/contact/contact.component';
+import { HomeComponent } from './components/structural/home/home.component';
+import { LoginComponent } from './components/login-related/login/index';
+import { RegisterComponent } from './components/login-related/register/index';
+import { AuthGuard } from './components/login-related/_guards/index';
+import { ViewUserComponent } from './components/contact-related/view-user/view-user.component';
+import { GenerateTurfComponent } from './components/generate-turf/generate-turf.component';
+import { LandingComponent } from './components/landing/landing.component';
+import { CreateContactComponent } from './components/contact-related/create-contact/create-contact.component';
+import { SearchComponent } from './components/search/search.component';
+import { LiteratureComponent } from './components/structural/literature/literature.component';
+import { GraphComponent } from './components/graph/graph.component';
 
 const routes: Routes = [
   {

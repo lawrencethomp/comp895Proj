@@ -3,14 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import {Http, Response, RequestOptions, Headers} from '@angular/http';
-import { DataService } from '../data.service';
+import { DataService } from '../../../services/data.service';
 import { Input } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { Contact } from '../contact';
 // import moment = require('moment');
 // import request = require('request');
 import * as _ from 'underscore';
 import { Observable, observable } from 'rxjs';
+
+import { Contact } from '../contact';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -54,7 +55,7 @@ export class ContactComponent implements OnInit {
     // }
     // )
   }
-
+  // TODO: Change deleteContact to its own Service.
   deleteContact(id){
     if (confirm('Are you sure you want to delete this contact?')) {
       alert('contact deleted');
@@ -74,6 +75,7 @@ export class ContactComponent implements OnInit {
     // this.arrayLength --;
   }
 
+  // TODO: Switch ChangeStatus so that it is its own Service or part of another
   changeStatus() {
     if (this.campaign === false) {
       this.dataService.addContact(this.contactData);

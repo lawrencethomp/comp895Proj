@@ -50,6 +50,7 @@ deletedItem: number;
     this.sendContactLength.emit(this.triggerLengthChange);
   }
 
+  // TODO: Refine QueryBuilder 
   buildQueryInformation(campaignContacts) {
     let queryString: string = '&q=';
     for  (var i = 0; i < campaignContacts.length; i++) {
@@ -71,6 +72,9 @@ deletedItem: number;
     
   // }
 
+  
+  // TODO: Switch paginateMongo into its own service.
+
   paginateMongoForward() {
     console.log('here')
     this.changingPage = true;
@@ -82,6 +86,7 @@ deletedItem: number;
     this.paginateData.emit(this.changingPage);
   }
 
+  // TODO: Switch contact logic.
   addContact(contact) {
     this.campaignData.push(contact);
   }

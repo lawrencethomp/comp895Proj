@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ContactGraph, contacts} from '../contactGraph';
-import { Contact } from '../contact';
+
+import {ContactGraph, contacts} from '../../models/contactGraph';
+import { Contact } from '../../models/contact';
 
 @Component({
   selector: 'app-graph',
@@ -16,7 +17,7 @@ export class GraphComponent implements OnInit {
   ngOnInit() {
   }
 
-  const contactOne = new Contact(
+contactOne = new Contact(
     "Lawrence",
     "Thompson",
     "86 Liberty Street",
@@ -27,7 +28,7 @@ export class GraphComponent implements OnInit {
     "43.00885590000001, -71.44774689999997"
     );
 
-const contactTwo = new Contact(
+contactTwo = new Contact(
     "Mario",
     "Thompson",
     "9809 Conbes Drive",
@@ -38,7 +39,7 @@ const contactTwo = new Contact(
     "29.4241219, -98.49362819999999"
 );
 
-const contactThree = new Contact(
+contactThree = new Contact(
     "Carlotta",
     "Thompson",
     "211 River Road",
@@ -49,7 +50,7 @@ const contactThree = new Contact(
     "44.2805487, -69.7765604"
 );
 
-const contactFour = new Contact(
+contactFour = new Contact(
     "Leigh",
     "Nicole",
     "203 West Leaf",
@@ -63,6 +64,6 @@ const contactFour = new Contact(
 
 myGraph : ContactGraph = new ContactGraph(contacts);
 
-myGraph.printGraph();
+//myGraph.printGraph();
 
 }
