@@ -7,7 +7,7 @@ const ContactSchema = new mongoose.Schema({
   email: String,
   timeAdded: String,
   pronoun: String,
-  additionalNotes: String,
+  additionalNotes: Array,
   city: String,
   state: String,
   lastEdited: String,
