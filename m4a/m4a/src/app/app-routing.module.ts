@@ -11,7 +11,6 @@ import { RegisterComponent } from './components/login-related/register/index';
 import { AuthGuard } from './components/login-related/_guards/index';
 import { ViewUserComponent } from './components/contact-related/view-user/view-user.component';
 import { GenerateTurfComponent } from './components/generate-turf/generate-turf.component';
-import { LandingComponent } from './components/landing/landing.component';
 import { CreateContactComponent } from './components/contact-related/create-contact/create-contact.component';
 import { SearchComponent } from './components/search/search.component';
 import { LiteratureComponent } from './components/structural/literature/literature.component';

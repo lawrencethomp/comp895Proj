@@ -14,11 +14,10 @@ import { HomeComponent } from './components/structural/home/home.component';
 import { AlertComponent } from './components/login-related/_directives/index';
 import { LoginComponent } from './components/login-related/login/login.component';
 import { ViewUserComponent } from './components/contact-related/view-user/view-user.component';
-import { LandingComponent } from './components/landing/landing.component';
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './components/login-related/_guards/index';
 import { JwtInterceptorProvider, ErrorInterceptorProvider } from './components/login-related/_helpers/index';
-import { AlertService, AuthenticationService, UserService } from './components/login-related/_services/index';
+import { AlertService, AuthenticationService, UserService } from './_services/index';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ContactListComponent } from './components/contact-related/contact-list/contact-list.component';
 import { EditContactComponent } from './components/edit-contact/edit-contact.component';
@@ -31,6 +30,7 @@ import { RegisterComponent } from './components/login-related/register/register.
 import { AgmCoreModule } from '@agm/core';
 import { LiteratureComponent } from './components/structural/literature/literature.component';
 import { GraphComponent } from './components/graph/graph.component';
+import {PhoneNumberService} from './services/phone-number/phone-number.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,6 @@ import { GraphComponent } from './components/graph/graph.component';
     HomeComponent,
     LoginComponent,
     ViewUserComponent,
-    LandingComponent,
     GenerateTurfComponent,
     ContactListComponent,
     EditContactComponent,
@@ -72,7 +71,8 @@ import { GraphComponent } from './components/graph/graph.component';
         AuthenticationService,
         UserService,
         JwtInterceptorProvider,
-        ErrorInterceptorProvider
+        ErrorInterceptorProvider,
+        PhoneNumberService
         ],
   bootstrap: [AppComponent]
 })
