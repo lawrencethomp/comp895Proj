@@ -22,4 +22,21 @@ describe('GraphComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it('Should have individual accessible nodes', function() {
+
+  });
+
+  it('Should have available edges', function() {
+
+  });
+
+  it('Each edge should have a distance between them', function() {
+
+  });
+
+  it('Each Node can only be a Contact', function() {
+
+  });
+
 });

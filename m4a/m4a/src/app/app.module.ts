@@ -31,7 +31,9 @@ import { AgmCoreModule } from '@agm/core';
 import { LiteratureComponent } from './components/structural/literature/literature.component';
 import { GraphComponent } from './components/graph/graph.component';
 import {PhoneNumberService} from './services/phone-number/phone-number.service';
-
+import {CreateContactService} from './services/contact/create-contact.service';
+import {GetContactService} from './services/contact/get-contact.service';
+// check
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +74,9 @@ import {PhoneNumberService} from './services/phone-number/phone-number.service';
         UserService,
         JwtInterceptorProvider,
         ErrorInterceptorProvider,
-        PhoneNumberService
+        PhoneNumberService,
+        CreateContactService,
+        GetContactService
         ],
   bootstrap: [AppComponent]
 })
