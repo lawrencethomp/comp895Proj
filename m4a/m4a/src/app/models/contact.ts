@@ -1,5 +1,4 @@
  export class Contact {
-    edge: Array<>;
     constructor(
         public firstName: string,
         public lastName: string,

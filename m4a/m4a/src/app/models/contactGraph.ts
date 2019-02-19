@@ -66,7 +66,7 @@ export class ContactGraph{
 
 
 
-let contactOne = new Contact(
+export let contactOne = new Contact(
     'Lawrence',
     'Thompson',
     '86 Liberty Street',

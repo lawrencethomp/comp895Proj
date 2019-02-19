@@ -29,7 +29,7 @@ describe('GetContactService', () => {
 
   });
 
-  let contactRequest = httpMock.expectOne('../../../assets/contactMock.json');
+  // let contactRequest = httpMock.expectOne('../../../assets/contactMock.json');
 
   it('should be able to return a contact', function () {
 
