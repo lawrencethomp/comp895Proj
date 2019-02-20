@@ -23,5 +23,16 @@ describe('Testing the Graph Model', () => {
   it('Each Node can only be a Contact', function() {
 
   });
+  it('Can add a Node', function() {
+
+  });
+  it('Can edit a Contact Taking data from a Node', function() {
+
+  });
+  it('Can Remove a Node from search', function() {
+    
+  });
+
+
 
 });

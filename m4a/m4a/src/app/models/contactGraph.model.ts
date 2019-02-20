@@ -1,4 +1,4 @@
-import {Contact} from './contact';
+import {Contact} from './contact.model';
 
 
 /* 
@@ -33,14 +33,14 @@ export class ContactGraph{
     addVertex() {
 
     }
-    
+
     /**
      *  @function addEdge - Adds an edge into a node.
      *      @param {ContactNode} startNode the first node to be connected.
      *      @param {ContactNode} endNode the second node to be connected.
      *      @returns {Edge} Edge the Edge between a and b.
     */
-        
+
     addEdge(startNode, endNode) {
 
 
@@ -51,7 +51,7 @@ export class ContactGraph{
      *      @returns {boolean} whether or not there was a node.
      *
     */
- 
+
     contains() {}
 
     /**
