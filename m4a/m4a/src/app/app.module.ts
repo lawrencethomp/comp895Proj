@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { Routes,
-         RouterModule
+        RouterModule
 } from '@angular/router';
 import { routing } from './app-routing.module';
 import { HttpModule } from '@angular/http';
@@ -33,6 +33,7 @@ import { GraphComponent } from './components/graph/graph.component';
 import {PhoneNumberService} from './services/phone-number/phone-number.service';
 import {CreateContactService} from './services/contact/create-contact.service';
 import {GetContactService} from './services/contact/get-contact.service';
+import { EmailServiceService } from './services/email/email-service.service';
 // check
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import {GetContactService} from './services/contact/get-contact.service';
         ErrorInterceptorProvider,
         PhoneNumberService,
         CreateContactService,
-        GetContactService
+        GetContactService,
+        EmailServiceService
         ],
   bootstrap: [AppComponent]
 })

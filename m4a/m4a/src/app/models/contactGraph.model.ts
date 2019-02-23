@@ -1,17 +1,15 @@
 import {Contact} from './contact.model';
-
-
-/* 
+import {Node} from './node.model';
+import {Edge} from './edge.model';
+/*
     The Contact Graph DataType.
 */
 
 // TODO: Change contact to ContactNode
-export class ContactGraph{
-    vertices: Array<Contact>;
-    AdjList;
+export class ContactGraph {
+    vertices: Array<Node>;
     constructor(vertices) {
         this.vertices = vertices;
-        this.AdjList = new Map();
 
     }
 
@@ -22,7 +20,7 @@ export class ContactGraph{
      */
     addVertices () {
         // for(let i = 0)
-    };
+    }
 
     /**
      *  @function addVertex - Adds a Vertex to the Existing Array.
@@ -30,9 +28,10 @@ export class ContactGraph{
      *
     */
 
-    addVertex() {
-
+    addVertex(node: Node) {
+        this.vertices.push(node);
     }
+
 
     /**
      *  @function addEdge - Adds an edge into a node.
@@ -41,7 +40,7 @@ export class ContactGraph{
      *      @returns {Edge} Edge the Edge between a and b.
     */
 
-    addEdge(startNode, endNode) {
+    addEdge(startNode: Node, endNode: Node) {
 
 
     }
@@ -61,7 +60,8 @@ export class ContactGraph{
      *      @returns {boolean} Whether or not there was an edge.
     */
 
-    hasEdge() {}
+    hasEdge(edge: Edge) {}
+
 }
 
 

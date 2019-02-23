@@ -6,7 +6,7 @@
 */
 
 import { Edge } from './edge.model';
-import { Contact } from './contact';
+import { Contact } from './contact.model';
 
 /**
  *
@@ -33,7 +33,7 @@ export class Node {
 
     /**
      * @function addEdge
-     * @returns void 
+     * @returns void
      */
     addEdge(edge: Edge) {
         this.edgeArray.push(edge);

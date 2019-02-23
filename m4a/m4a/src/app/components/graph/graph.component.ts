@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import {ContactGraph, contacts} from '../../models/contactGraph';
-import { Contact } from '../../models/contact';
+import {ContactGraph, contacts} from '../../models/contactGraph.model';
+import { Contact } from '../../models/contact.model';
 
 @Component({
   selector: 'app-graph',

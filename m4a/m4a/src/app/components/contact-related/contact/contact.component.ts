@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
 import * as _ from 'underscore';
 import { Observable, observable } from 'rxjs';
 
-import { Contact } from '../../../models/contact';
+import { Contact } from '../../../models/contact.model';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
