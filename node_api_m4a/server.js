@@ -1,5 +1,6 @@
 // server.js
 require('rootpath')();
+var api = require('./index');
 var express = require('express');
 var app = require('./app');
 var cors = require('cors');
@@ -10,6 +11,7 @@ var config = require('config.json');
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+//app.use(api.apiRouter);
  
 // use JWT auth to secure the api, the token can be passed in the authorization header or querystring
 // app.use(expressJwt({

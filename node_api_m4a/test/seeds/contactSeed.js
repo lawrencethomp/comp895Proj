@@ -73,3 +73,5 @@ const populateContacts = async () => {
     contacts[2] = contactThree;
     contacts[3] = contactFour;
 }
+
+export default contacts; 

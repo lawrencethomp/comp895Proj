@@ -11,7 +11,7 @@ var Contact = require('./Contact');
 
 */
 
-router.post('/', function(req, res){
+const createContact = (req, res) => {
     Contact.create({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -43,13 +43,10 @@ router.post('/', function(req, res){
         res.status(200).send(contact);
     });
 
-});
+};
 
 
-
-// code probably goes here!
-router.get('/', function (req, res) {
-    console.log('request started');
+const getContacts =  (req, res) => {
     var pageNo = parseInt(req.query.pageNo);
         var size = parseInt(req.query.size)
         var query = {}
@@ -85,28 +82,38 @@ router.get('/', function (req, res) {
             } return res.json(response);
         });
     })
-});
+}
 
-router.get('/:id', function (req, res) {
+
+const getContact = (req, res) => {
     Contact.findById(req.params.id, function (err, contact) {
         if (err) return res.status(500).send("There was a problem finding the contact.");
         if (!contact) return res.status(404).send("No contact found.");
         res.status(200).send(contact);
     });
-});
+}
 
-router.delete('/:id', function (req, res) {
+
+
+const deleteContact = (req, res) => {
     Contact.findByIdAndRemove(req.params.id, function (err, contact) {
         if (err) return res.status(500).send("There was a problem deleting the contact.");
         res.status(200).send("Contact "+ contact.name +" was deleted.");
     });
-});
+}
 
-router.put('/:id', function (req, res) {
+
+const updateContact = (req, res) => {
     Contact.findByIdAndUpdate(req.params.id, req.body, {new: true}, function (err, contact) {
         if (err) return res.status(500).send("There was a problem updating the contact.");
         res.status(200).send(contact);
     });
-});
+}
 
-module.exports = router;
+module.exports.contactController = {    
+    createContact,
+    getContacts,
+    getContact,
+    deleteContact,
+    updateContact
+};

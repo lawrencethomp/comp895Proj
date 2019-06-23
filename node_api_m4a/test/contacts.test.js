@@ -6,19 +6,7 @@ const chai = require('chai');
 const Contact = require('../Contact');
 const expect = chai.expect;
 
-var felix = Contact({
-    firstName: "Felix",
-    lastName: "Biederman",
-    address: "Chapo's Trap House",
-    phonenumber: '540-833-9000',
-    email: "virgil@chapo.com",
-    zipcode: "03104",
-    geoLocation_lat: "43.042572",
-    geoLocation_lng:"-71.467529",
-    city: "Manchester",
-    pronoun: "gamer",
-    state: "NH"
-});
+var felix = contactSeed.contacts[0];
 console.log(`felx first name ${felix.firstName}` )
     describe('Test Contacts', function() {
         it('Should Have a First Name', ()=> {
@@ -40,6 +28,4 @@ console.log(`felx first name ${felix.firstName}` )
         })
         
     });
-
-
 
