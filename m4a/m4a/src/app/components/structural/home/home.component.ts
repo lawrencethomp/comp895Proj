@@ -29,23 +29,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.quote = this.randomQuote();
-    //this.loadAllUsers();
   }
-
-  currentUser: User;
-    users: User[] = [];
- 
-    constructor(private userService: UserService) {
-        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    }
- 
-    deleteUser(_id: string) {
-        this.userService.delete(_id).subscribe(() => { this.loadAllUsers() });
-    }
- 
-    private loadAllUsers() {
-        this.userService.getAll().subscribe(users => { this.users = users; });
-    }
 
   randomQuote() {
     return this.quotes[

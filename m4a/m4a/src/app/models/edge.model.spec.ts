@@ -16,10 +16,10 @@ describe('Testing the Node Model', () => {
         expect(model.distance).toBe(5);
     });
     it('should have a Latitude', function() {
-        expect(model.NodeLat).toBe('43.00885590000001');
+        expect(model.NodeLat1).toBe('43.00885590000001');
     });
     it('should have a Longitude', function() {
-        expect(model.NodeLng).toBe('-71.44774689999997');
+        expect(model.NodeLng1).toBe('-71.44774689999997');
     });
     it('should have a parent node first and last name', function() {
         expect(model.connectedNodeName).toBe('Lawrence Thompson');

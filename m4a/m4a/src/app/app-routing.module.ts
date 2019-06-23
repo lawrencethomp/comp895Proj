@@ -6,21 +6,15 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ContactComponent } from './components/contact-related/contact/contact.component';
 import { HomeComponent } from './components/structural/home/home.component';
-import { LoginComponent } from './components/login-related/login/index';
-import { RegisterComponent } from './components/login-related/register/index';
-import { AuthGuard } from './components/login-related/_guards/index';
-import { ViewUserComponent } from './components/contact-related/view-user/view-user.component';
 import { GenerateTurfComponent } from './components/generate-turf/generate-turf.component';
 import { CreateContactComponent } from './components/contact-related/create-contact/create-contact.component';
 import { SearchComponent } from './components/search/search.component';
-import { LiteratureComponent } from './components/structural/literature/literature.component';
 import { GraphComponent } from './components/graph/graph.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
-    canActivate: [AuthGuard],
     pathMatch: 'full'
   },
   {
@@ -32,16 +26,8 @@ const routes: Routes = [
     component: ContactComponent
   },
   {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
     path: 'createcontact',
     component: CreateContactComponent
-  },
-  {
-    path: 'user',
-    component: ViewUserComponent
   },
   {
     path: 'graph',
@@ -66,14 +52,6 @@ const routes: Routes = [
   {
     path: 'search',
     component: SearchComponent
-  },
-  {
-    path: 'register',
-    component: RegisterComponent
-  },
-  {
-    path: 'literature',
-    component: LiteratureComponent
   },
   {
     path: '**',
