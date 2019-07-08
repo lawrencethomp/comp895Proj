@@ -1,15 +1,4 @@
-var express = require('express');
-var router = express.Router();
-var bodyParser = require('body-parser');
-router.use(bodyParser.urlencoded({ extended: true }));
-router.use(bodyParser.json());
 var Contact = require('./Contact');
-/*
-    todo: separate routes from comments
-    todo: switch to route logic
-    todo: write up a comment logic.
-
-*/
 
 const createContact = (req, res) => {
     Contact.create({
@@ -40,8 +29,7 @@ const createContact = (req, res) => {
     function (err, contact){
         if (err) return res.status(500)
             .send("There was a problem adding the information to the database.");
-        console.log(err);
-        res.status(200).send(contact);
+        return res.status(200).send(contact);
     });
 
 };
@@ -90,7 +78,7 @@ const getContact = (req, res) => {
     Contact.findById(req.params.id, function (err, contact) {
         if (err) return res.status(500).send("There was a problem finding the contact.");
         if (!contact) return res.status(404).send("No contact found.");
-        res.status(200).send(contact);
+        return res.status(200).send(contact);
     });
 }
 
@@ -99,7 +87,7 @@ const getContact = (req, res) => {
 const deleteContact = (req, res) => {
     Contact.findByIdAndRemove(req.params.id, function (err, contact) {
         if (err) return res.status(500).send("There was a problem deleting the contact.");
-        res.status(200).send("Contact "+ contact.name +" was deleted.");
+        return res.status(200).send("Contact "+ contact.name +" was deleted.");
     });
 }
 
@@ -107,7 +95,7 @@ const deleteContact = (req, res) => {
 const updateContact = (req, res) => {
     Contact.findByIdAndUpdate(req.params.id, req.body, {new: true}, function (err, contact) {
         if (err) return res.status(500).send("There was a problem updating the contact.");
-        res.status(200).send(contact);
+        return res.status(200).send(contact);
     });
 }
 

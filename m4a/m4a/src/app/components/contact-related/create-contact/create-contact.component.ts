@@ -70,7 +70,7 @@ export class CreateContactComponent implements OnInit {
       addedBy: 'LT',
     })
     .subscribe( res => {
-        console.table(res);
+        console.table(res.status);
       },
       err => {
         console.log('Error occurred');
