@@ -106,9 +106,9 @@ let contactFour = new Contact(
     'leighnicole@gmail.com',
     '6033692893',
     'SHE',
-    'hot',
+    'neat',
     '43.2081366, -71.53757180000002'
-)
+);
 
 export let contacts : Array<Contact> = [
     contactOne, contactTwo, 

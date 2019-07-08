@@ -8,7 +8,7 @@ contactRouter.route("/")
     .get(contactController.contactController.getContacts);
 
 contactRouter.route("/:id")
-    .post(contactController.contactController.updateContact)
+    .put(contactController.contactController.updateContact)
     .get(contactController.contactController.getContact)
     .delete(contactController.contactController.deleteContact);
 

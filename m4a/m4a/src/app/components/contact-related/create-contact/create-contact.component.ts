@@ -45,8 +45,9 @@ export class CreateContactComponent implements OnInit {
     const now: string = moment().format().toString();
     // const lat = this.parseAddress('lat', 'callback');
     // const lng = this.parseAddress('lng', 'callback');
+    console.log('reaches here');
     return this.http
-    .post(`http://localhost:3000/contacts`, {
+    .post(`http://localhost:8080/contacts`, {
       firstName: form.value.firstName,
       lastName: form.value.lastName,
       address: form.value.address,
@@ -73,6 +74,7 @@ export class CreateContactComponent implements OnInit {
       },
       err => {
         console.log('Error occurred');
+        console.error();
       }
     );
   }
@@ -84,6 +86,7 @@ export class CreateContactComponent implements OnInit {
     const state = `+${form.value.state.toUpperCase()}`;
     const key = `&key=AIzaSyBFj0EJm83C3LBt4alXp7z5kBQycQKHXF4`;
     const geocodeCall = `${url}${address}${city}${state}${key}`;
+    console.log(geocodeCall);
     return geocodeCall;
 
   }
@@ -98,8 +101,10 @@ export class CreateContactComponent implements OnInit {
     } else if (body.status === 'ZERO_RESULTS') {
       callback('Unable to find that address.');
     } else if (body.status === 'OK') {
+      console.log('this is ok');
       this.contactLat = body.results[0].geometry.location.lat;
       this.contactLng = body.results[0].geometry.location.lng;
+      console.table(form);
       this.createContact(form);
     }
   //   return this.http

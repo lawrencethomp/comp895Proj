@@ -30,10 +30,10 @@ export class GenerateTurfComponent implements OnInit {
   }
 
   paginateMongo( direction: string) {
-    if (direction === "forward") {
+    if (direction === 'forward') {
       this.dataService.paginateMongoForward();
     }
-    if (direction === "backward") {
+    if (direction === 'backward') {
       this.dataService.paginateMongoBackward();
     }
   }

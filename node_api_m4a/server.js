@@ -11,8 +11,8 @@ var config = require('config.json');
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-//app.use(api.apiRouter);
- 
+app.use(api.apiRouter);
+
 // use JWT auth to secure the api, the token can be passed in the authorization header or querystring
 // app.use(expressJwt({
 //     secret: config.secret,
@@ -30,7 +30,9 @@ app.use(bodyParser.json());
 // app.use('/users', require('./controllers/users.controller'));
 
 // start server
-var port = process.env.NODE_ENV === 'production' ? 80 : 3000;
+var port = process.env.NODE_ENV === 'production' ? 80 : 8080;
 var server = app.listen(port, function () {
     console.log('Server listening on port ' + port);
 });
+
+module.exports = app;

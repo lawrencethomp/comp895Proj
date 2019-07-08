@@ -30,8 +30,8 @@ export class ContactComponent implements OnInit {
   arraySpot: number;
   @Input()
   arrayLength: number;
-  baseURL = 'http://localhost:3000/contacts';
-  contactURL = 'http://localhost:3000/contacts';
+  baseURL = 'http://localhost:8080/contacts';
+  contactURL = 'http://localhost:8080/contacts';
   _ref: any;
   living: boolean = true;
   campaign: boolean = false;

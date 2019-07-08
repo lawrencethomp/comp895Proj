@@ -28,7 +28,7 @@ deletedItem: number;
   constructor(private http: Http) { }
   getContacts() {
     // return this.http
-    //   .get(`http://localhost:3000/contacts`)
+    //   .get(`http://localhost:8080/contacts`)
     //   .do((res) => {
     //     this.data = res.json();
     //     console.log(this.data);

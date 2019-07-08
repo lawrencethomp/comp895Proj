@@ -24,7 +24,7 @@ export class EditContactComponent implements OnInit {
   }
   getContactDetail(contactId: any) {
     return this.http
-      .request(`http://localhost:3000/contacts/${contactId}`)
+      .request(`http://localhost:8080/contacts/${contactId}`)
       .subscribe((res) => {
         this.contactInfo = res.json();
         console.log(this.contactInfo);
@@ -33,7 +33,7 @@ export class EditContactComponent implements OnInit {
   editContact(form: NgForm) {
     const now: string = moment().format().toString();
     return this.http
-      .put(`http://localhost:3000/contacts/${this.contactId}`, {
+      .put(`http://localhost:8080/contacts/${this.contactId}`, {
          firstName: form.value.firstName,
          lastName: form.value.lastName,
          address: form.value.address,

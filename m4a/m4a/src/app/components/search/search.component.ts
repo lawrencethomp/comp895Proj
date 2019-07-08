@@ -10,7 +10,7 @@ export class SearchComponent implements OnInit {
   constructor(private http: Http) { }
   contacts: Object = [];
   searchCompleted: boolean = false;
-  baseUrl = `http://localhost:3000/search?`;
+  baseUrl = `http://localhost:8080/search?`;
   ngOnInit() {
   }
 
@@ -62,10 +62,10 @@ return  searchString;
               const searchStr: String = this.buildSearchQuery(firstName, lastName/* , supportACA,
                 supportM4A, incomeLevel, politicalView */);
     return this.http
-      .request(`http://localhost:3000/search?firstName=${firstName}&lastName=${lastName}`)
+      .request(`http://localhost:8080/search?firstName=${firstName}&lastName=${lastName}`)
       .subscribe((res) => {
         this.contacts = res.json();
-        console.log(`http://localhost:3000/search?firstName=${firstName}&lastName=${lastName}`);
+        console.log(`http://localhost:8080/search?firstName=${firstName}&lastName=${lastName}`);
         console.log(`first name ${firstName}`)
         console.log(`last name ${lastName}`)
         // console.log(`supportACA ${supportACA}`)

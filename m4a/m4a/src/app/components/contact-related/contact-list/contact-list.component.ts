@@ -29,7 +29,7 @@ export class ContactListComponent implements OnInit {
   getContacts() {
     this.triggerLoading();
     return this.http
-      .request(`http://localhost:3000/contacts?pageNo=${this.pageNo}&size=25`)
+      .request(`http://localhost:8080/contacts?pageNo=${this.pageNo}&size=25`)
       .subscribe((res) => {
         this.triggerLoading();
         this.contacts = res.json();

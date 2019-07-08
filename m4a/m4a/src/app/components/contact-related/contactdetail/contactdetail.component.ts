@@ -52,7 +52,7 @@ export class ContactdetailComponent implements OnInit {
   // }
   getContactDetail(contactId) {
     return this.http
-      .request(`http://localhost:3000/contacts/${contactId}`)
+      .request(`http://localhost:8080/contacts/${contactId}`)
       .subscribe((res) => {
         this.contactDetail = res.json();
         if (this.contactDetail.hasOwnProperty('geoLocation_lat')) {

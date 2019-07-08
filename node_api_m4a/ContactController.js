@@ -40,6 +40,7 @@ const createContact = (req, res) => {
     function (err, contact){
         if (err) return res.status(500)
             .send("There was a problem adding the information to the database.");
+        console.log(err);
         res.status(200).send(contact);
     });
 
@@ -79,7 +80,7 @@ const getContacts =  (req, res) => {
                     "message" : contacts,
                     "pages" : totalPages
                 };
-            } return res.json(response);
+            } return res.status(200).json(response);
         });
     })
 }

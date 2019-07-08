@@ -8,7 +8,7 @@
 
 //     it('Should update a Contact', (done)=> {
 //         request(server.app)
-//         // ugh this should be the ID huh http://localhost:3000/contacts
+//         // ugh this should be the ID huh http://localhost:8080/contacts
 //             .put(`/contacts/${items[0]._id.toString()}`)
 //             .send({
 //                 firstName : "Big Boy",

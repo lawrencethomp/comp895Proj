@@ -74,4 +74,4 @@ const populateContacts = async () => {
     contacts[3] = contactFour;
 }
 
-export default contacts; 
+module.exports.contacts = contacts;
