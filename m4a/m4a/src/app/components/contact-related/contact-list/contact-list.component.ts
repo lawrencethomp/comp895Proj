@@ -2,7 +2,7 @@ import { Http } from '@angular/http';
 import { Component, OnInit, Output } from '@angular/core';
 import { DataService } from '../../../services/data.service';
 import { Observable } from 'rxjs';
-
+import { apiUrl } from '../../../../../apiConfig';
 @Component({
   selector: 'app-contact-list',
   templateUrl: './contact-list.component.html',
@@ -29,7 +29,7 @@ export class ContactListComponent implements OnInit {
   getContacts() {
     this.triggerLoading();
     return this.http
-      .request(`http://localhost:8080/contacts?pageNo=${this.pageNo}&size=25`)
+      .request(`${apiUrl}/contacts?pageNo=${this.pageNo}&size=25`)
       .subscribe((res) => {
         this.triggerLoading();
         this.contacts = res.json();

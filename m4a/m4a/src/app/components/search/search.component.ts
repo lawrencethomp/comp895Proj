@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
+import {apiUrl} from '../../../../apiConfig';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -10,7 +11,7 @@ export class SearchComponent implements OnInit {
   constructor(private http: Http) { }
   contacts: Object = [];
   searchCompleted: boolean = false;
-  baseUrl = `http://localhost:8080/search?`;
+  baseUrl = `${apiUrl}/search?`;
   ngOnInit() {
   }
 
@@ -62,10 +63,10 @@ return  searchString;
               const searchStr: String = this.buildSearchQuery(firstName, lastName/* , supportACA,
                 supportM4A, incomeLevel, politicalView */);
     return this.http
-      .request(`http://localhost:8080/search?firstName=${firstName}&lastName=${lastName}`)
+      .request(`${apiUrl}/search?firstName=${firstName}&lastName=${lastName}`)
       .subscribe((res) => {
         this.contacts = res.json();
-        console.log(`http://localhost:8080/search?firstName=${firstName}&lastName=${lastName}`);
+        console.log(`${apiUrl}/search?firstName=${firstName}&lastName=${lastName}`);
         console.log(`first name ${firstName}`)
         console.log(`last name ${lastName}`)
         // console.log(`supportACA ${supportACA}`)

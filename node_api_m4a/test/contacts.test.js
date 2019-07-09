@@ -8,6 +8,7 @@ const expect = chai.expect;
 
 var felix = contactSeed.contacts[0];
 console.log(`felx first name ${felix.firstName}` )
+// TODO: add other unit tests to describe logic. 
     describe('Test Contacts', function() {
         it('Should Have a First Name', ()=> {
             console.log(` got felix ${felix}`);

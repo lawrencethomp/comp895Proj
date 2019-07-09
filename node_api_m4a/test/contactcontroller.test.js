@@ -63,6 +63,7 @@ describe('Contact API Integration Tests', function(){
                 })
         })
         })
+    // TODO: separate tests so that create shows different stuff    
     describe('POST CONTACTS', function(){
         it('Should be able to create an individual contact', function() {
                 request(app)
@@ -79,6 +80,8 @@ describe('Contact API Integration Tests', function(){
                 })
             })
         })
+    // TODO: Fix failing logic. believe that send needs to be different
+    // TODO: Fix so that a contact is created.    
     describe('DELETE CONTACTS', function() {
         it('Should be able to delete an individual contact', function() {
             var id;

@@ -2,6 +2,7 @@ import { NgForm } from '@angular/forms';
 import { Http } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import {apiUrl} from '../../../../apiConfig'
 import { Contact } from '../../models/contact.model';
 import * as moment from 'moment';
 
@@ -24,7 +25,7 @@ export class EditContactComponent implements OnInit {
   }
   getContactDetail(contactId: any) {
     return this.http
-      .request(`http://localhost:8080/contacts/${contactId}`)
+      .request(`${apiUrl}/contacts/${contactId}`)
       .subscribe((res) => {
         this.contactInfo = res.json();
         console.log(this.contactInfo);
@@ -33,7 +34,7 @@ export class EditContactComponent implements OnInit {
   editContact(form: NgForm) {
     const now: string = moment().format().toString();
     return this.http
-      .put(`http://localhost:8080/contacts/${this.contactId}`, {
+      .put(`${apiUrl}/contacts/${this.contactId}`, {
          firstName: form.value.firstName,
          lastName: form.value.lastName,
          address: form.value.address,

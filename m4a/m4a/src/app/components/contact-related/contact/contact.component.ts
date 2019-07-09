@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 // import request = require('request');
 import * as _ from 'underscore';
 import { Observable, observable } from 'rxjs';
-
+import { apiUrl } from '../../../../../apiConfig';
 import { Contact } from '../../../models/contact.model';
 @Component({
   selector: 'app-contact',
@@ -30,8 +30,8 @@ export class ContactComponent implements OnInit {
   arraySpot: number;
   @Input()
   arrayLength: number;
-  baseURL = 'http://localhost:8080/contacts';
-  contactURL = 'http://localhost:8080/contacts';
+  baseURL = `${apiUrl}/contacts`;
+  contactURL = `${apiUrl}/contacts`;
   _ref: any;
   living: boolean = true;
   campaign: boolean = false;

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Http } from '@angular/http';
-
+import { apiUrl } from '../../../../../apiConfig'
 // import googleMapsClient = require('@google/maps');
 import { GoogleMaps } from 'svelte-google-maps-embed';
 import {
@@ -52,7 +52,7 @@ export class ContactdetailComponent implements OnInit {
   // }
   getContactDetail(contactId) {
     return this.http
-      .request(`http://localhost:8080/contacts/${contactId}`)
+      .request(`${apiUrl}/contacts/${contactId}`)
       .subscribe((res) => {
         this.contactDetail = res.json();
         if (this.contactDetail.hasOwnProperty('geoLocation_lat')) {

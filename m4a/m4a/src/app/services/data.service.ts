@@ -6,6 +6,7 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 // import {Rx} from 'rxjs';
 import {Observable} from 'rxjs/Observable';
 import { Output } from '@angular/core';
+import { apiUrl } from '../../../apiConfig';
 
 @Injectable()
 export class DataService {
@@ -28,11 +29,11 @@ deletedItem: number;
   constructor(private http: Http) { }
   getContacts() {
     // return this.http
-    //   .get(`http://localhost:8080/contacts`)
+    //   .get(`${apiUrl}/contacts`)
     //   .do((res) => {
     //     this.data = res.json();
     //     console.log(this.data);
-    //     console.log(`${this.data[0].name} fuck`);
+    //     console.log(`${this.data[0].name} cool`);
     //     console.log(this.data[0].phone_number);
     //     return this.data;
     //   })

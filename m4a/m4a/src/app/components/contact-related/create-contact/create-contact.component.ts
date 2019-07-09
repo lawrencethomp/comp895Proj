@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Http, Response} from '@angular/http';
 import * as moment from 'moment';
 import * as request from 'request';
+import {apiUrl} from '../../../../../apiConfig';
 import { first } from 'rxjs/operators/first';
 @Component({
   selector: 'app-create-contact',
@@ -41,13 +42,13 @@ export class CreateContactComponent implements OnInit {
  async createContact(form: NgForm) {
     const lat = this.contactLat;
     const lng = this.contactLng;
-  
+    // TODO: sanitize logic
     const now: string = moment().format().toString();
     // const lat = this.parseAddress('lat', 'callback');
     // const lng = this.parseAddress('lng', 'callback');
     console.log('reaches here');
     return this.http
-    .post(`http://localhost:8080/contacts`, {
+    .post(`${apiUrl}/contacts`, {
       firstName: form.value.firstName,
       lastName: form.value.lastName,
       address: form.value.address,
