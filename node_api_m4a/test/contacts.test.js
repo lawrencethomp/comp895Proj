@@ -9,6 +9,7 @@ const expect = chai.expect;
 var felix = contactSeed.contacts[0];
 console.log(`felx first name ${felix.firstName}` )
 // TODO: add other unit tests to describe logic. 
+// TODO: switch unit tests over to jest design
     describe('Test Contacts', function() {
         it('Should Have a First Name', ()=> {
             assert.equal(felix.firstName, "Felix")

@@ -1,16 +1,18 @@
 'use strict';
 
-var app = require('../app'),
-    request = require('supertest'),
-    jest = require('jest');
-var    expect = require('expect')
-let contactSeed = require('./seeds/contactSeed');
+var app = require('../app');
+var request = require('supertest');
+var expect = require('expect');
 
+let contactSeed = require('./seeds/contactSeed');
+// TODO: see if destructing patterns can be implemented.
 var testContactFelixBiederman = contactSeed.contacts[0];
 var testContactWillMenaker = contactSeed.contacts[1];
 // test to perform get requests on an object
 
 // TODO: create functions to wrap around tests for readability.
+// TODO: update naming scheme to reflect industry standards.
+// TODO: add tests to test around edge cases from book.
 
 describe('Contact API Integration Tests', () => {
     describe('#GET / contacts', () => {
@@ -48,7 +50,6 @@ describe('Contact API Integration Tests', () => {
             const firstName = await response.body.firstName;
             const _id = await response.body._id;
             expect(firstName).toBe('Felix');
-            // request(app).delete(`/contacts/${_id}`);
             const deleteResponse = await request(app).delete(`/contacts/${_id}`);
             expect(deleteResponse.status).toBe(200);
             expect(deleteResponse.body).toBe("Contact was deleted.");
@@ -56,7 +57,7 @@ describe('Contact API Integration Tests', () => {
         })
     });
     describe('#DELETE / contacts', () => {
-        test('Should be able to delete an individual contact', async() => {
+        test('Should be able to delete an individual contact', async () => {
             const response = await request(app).post('/contacts/').send(testContactWillMenaker);
             const removedContact = await request(app).delete(
                 `/contacts/${response.body._id}`
@@ -64,7 +65,7 @@ describe('Contact API Integration Tests', () => {
             expect(removedContact.status).toBe(200);
             expect(removedContact.body).toBe("Contact was deleted.");
         });
-        test('Deleted contacts should return errors', async() => {
+        test('Deleted contacts should return errors', async () => {
             const response = await request(app).post('/contacts/').send(testContactWillMenaker);
             const removedContact = await request(app).delete(
                 `/contacts/${response.body._id}`
@@ -74,6 +75,20 @@ describe('Contact API Integration Tests', () => {
             const deletedContact = await request(app).get(`/contacts/${response.body._id}`);
             expect(deletedContact.status).toBe(404);
             expect(deletedContact.body).toBe("No contact found.");     
+        })
+    })
+    describe('# PUT / contacts', () =>{
+        test('Should be able to change an individual contact', async () => {
+            const response = await request(app)
+                    .post(`/contacts/`)
+                    .send(testContactWillMenaker);
+
+            const updatedRequest = await request(app)
+                    .put(`/contacts/${response.body._id}`)
+                    .send({firstName: "William"});
+
+            expect(updatedRequest.body.firstName).toBe('William');
+            expect(response.body._id).toEqual(updatedRequest.body._id);
         })
     })
 });
