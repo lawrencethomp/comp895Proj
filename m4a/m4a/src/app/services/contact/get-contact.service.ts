@@ -15,17 +15,19 @@ export class GetContactService {
   constructor(private _http: HttpClient) {}
   // grab the code from the prev request in component.
 
+  contactUrl = `${apiUrl}/contacts`;
+
   getContact(id) {
-    return this._http.get(`${apiUrl}/contacts/${id}`);
+    return this._http.get(`${this.contactUrl}/${id}`);
   }
 
   getAllContacts(pageNo: number) {
-    return this._http.get(`${apiUrl}/contacts?pageNo=${pageNo}&size=25`);
+    return this._http.get(`${this.contactUrl}?pageNo=${pageNo}&size=25`);
   }
 
   editContact(form: NgForm, id) {
     const now: string = moment().format().toString();
-    return this._http.put(`${apiUrl}/contacts/${id}`, {
+    return this._http.put(`${this.contactUrl}/${id}`, {
       firstName: form.value.firstName,
          lastName: form.value.lastName,
          address: form.value.address,
@@ -40,14 +42,14 @@ export class GetContactService {
 
   deleteContact(id) {
     return this._http
-      .delete(`${apiUrl}/contacts/${id}`, {observe: 'response'});
+      .delete(`${this.contactUrl}/${id}`, {observe: 'response'});
   }
 
   createContact(form: NgForm, lat, lng) {
     console.log('it reached the service');
     const now: string = moment().format().toString();
     return this._http
-      .post(`${apiUrl}/contacts`, {
+      .post(`${this.contactUrl}`, {
         firstName: form.value.firstName,
         lastName: form.value.lastName,
         address: form.value.address,
