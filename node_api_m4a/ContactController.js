@@ -29,7 +29,7 @@ const createContact = (req, res) => {
     function (err, contact){
         if (err) return res.status(500)
             .send("There was a problem adding the information to the database.");
-        return res.status(200).send(contact);
+        return res.status(200).json(contact);
     });
 
 };
@@ -73,11 +73,13 @@ const getContacts =  (req, res) => {
     })
 }
 
+// TODO: (node:22780) DeprecationWarning: collection.count is deprecated, and will be removed in a future version. Use collection.countDocuments or collection.estimatedDocumentCount instead
+// TODO: (node:22780) DeprecationWarning: Mongoose: `findOneAndUpdate()` and `findOneAndDelete()` without the `useFindAndModify` option set to false are deprecated. See: https://mongoosejs.com/docs/deprecations.html#-findandmodify-
 
 const getContact = (req, res) => {
     Contact.findById(req.params.id, function (err, contact) {
         if (err) return res.status(500).send("There was a problem finding the contact.");
-        if (!contact) return res.status(404).send("No contact found.");
+        if (!contact) return res.status(404).json("No contact found.");
         return res.status(200).send(contact);
     });
 }
@@ -87,7 +89,7 @@ const getContact = (req, res) => {
 const deleteContact = (req, res) => {
     Contact.findByIdAndRemove(req.params.id, function (err, contact) {
         if (err) return res.status(500).send("There was a problem deleting the contact.");
-        return res.status(200).send("Contact "+ contact.name +" was deleted.");
+        return res.status(200).json("Contact was deleted.");
     });
 }
 

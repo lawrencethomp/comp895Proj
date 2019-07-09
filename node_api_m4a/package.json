@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "mocha"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -36,12 +36,16 @@
   "devDependencies": {
     "@agm/core": "^1.0.0-beta.6",
     "@types/googlemaps": "^3.36.6",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
     "expect": "^23.6.0",
     "jasmine": "^3.4.0",
+    "jest": "^24.8.0",
     "mocha": "^5.2.0",
     "nock": "^10.0.6",
     "passport": "^0.4.0",
+    "superagent": "^5.1.0",
     "supertest": "^3.4.2"
   }
 }

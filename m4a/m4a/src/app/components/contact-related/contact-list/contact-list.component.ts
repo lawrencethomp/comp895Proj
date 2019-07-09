@@ -1,16 +1,18 @@
-import { Http } from '@angular/http';
 import { Component, OnInit, Output } from '@angular/core';
 import { DataService } from '../../../services/data.service';
+import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { apiUrl } from '../../../../../apiConfig';
+import  {GetContactService} from '../../../services/contact/get-contact.service';
 @Component({
   selector: 'app-contact-list',
   templateUrl: './contact-list.component.html',
   styleUrls: ['./contact-list.component.scss']
 })
 export class ContactListComponent implements OnInit {
-  constructor(private http: Http,
-              private dataService: DataService
+  constructor(private http: HttpClient,
+              private dataService: DataService,
+              private getContactService: GetContactService
             ) { }
   contactsInitiated = false;
   contacts: Object = [ ];
@@ -28,22 +30,21 @@ export class ContactListComponent implements OnInit {
   contactsLength: number;
   getContacts() {
     this.triggerLoading();
-    return this.http
-      .request(`${apiUrl}/contacts?pageNo=${this.pageNo}&size=25`)
+    this.getContactService.getAllContacts(this.pageNo)
       .subscribe((res) => {
+        console.log('okay it reached here');
         this.triggerLoading();
-        this.contacts = res.json();
-        this.contactsLength = this.contacts["message"].length;
-        let contLength = this.contacts["message"].length;
+        this.contacts = res;
+        this.contactsLength = this.contacts['message'].length;
+        const contLength = this.contacts['message'].length;
         console.table(this.contacts);
-        this.contacts = this.contacts["message"];
+        this.contacts = this.contacts['message'];
         console.table(this.contacts);
             this.contactsLength = this.dataService.contactsLengthServiceNo;
             this.dataService.contactsLengthServiceNo = contLength;
             this.pageNo = this.dataService.pageNoServiceNo;
             console.log(` contact length ${this.dataService.contactsLengthServiceNo}`);
             console.log(`page no in service ${this.dataService.pageNoServiceNo}`);
-
       });
   }
 
