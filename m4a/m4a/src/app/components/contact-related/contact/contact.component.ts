@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
-import {Http, Response, RequestOptions, Headers} from '@angular/http';
 import { DataService } from '../../../services/data.service';
 import { Input } from '@angular/core';
 import { map } from 'rxjs/operators';
@@ -12,6 +11,7 @@ import * as _ from 'underscore';
 import { Observable, observable } from 'rxjs';
 import { apiUrl } from '../../../../../apiConfig';
 import { Contact } from '../../../models/contact.model';
+import { GetContactService } from '../../../services/contact/get-contact.service';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -20,8 +20,9 @@ import { Contact } from '../../../models/contact.model';
 export class ContactComponent implements OnInit {
 
   contact: Contact;
-  constructor(private http: Http,
-              private dataService: DataService
+  constructor(private http: HttpClient,
+              private dataService: DataService,
+              private getContactService: GetContactService
               ) { }
 
   @Input()
@@ -56,7 +57,7 @@ export class ContactComponent implements OnInit {
     // )
   }
   // TODO: Change deleteContact to its own Service.
-  deleteContact(id){
+  deleteContact(id) {
     if (confirm('Are you sure you want to delete this contact?')) {
       alert('contact deleted');
       this.living = false;
@@ -64,15 +65,9 @@ export class ContactComponent implements OnInit {
       this.dataService.contactsLengthServiceNo = this.arraySpot;
       this.dataService.triggerLengthChange = true;
       console.log(`changed length ${this.dataService.triggerLengthChange}`);
-      return this.http
-        .delete(`${this.baseURL}/${id}`)
-        .subscribe(res => console.log(res.json()))
-
+      this.getContactService.deleteContact(id)
+        .subscribe(res => console.log(res));
     }
-
-    // alert('contact deleted');
-    // this.living = false;
-    // this.arrayLength --;
   }
 
   // TODO: Switch ChangeStatus so that it is its own Service or part of another

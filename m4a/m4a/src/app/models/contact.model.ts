@@ -1,4 +1,5 @@
 export class Contact {
+    // TODO: Actually use this.
     private _firstName: string;
     private _lastName: string;
     private _address: string;
