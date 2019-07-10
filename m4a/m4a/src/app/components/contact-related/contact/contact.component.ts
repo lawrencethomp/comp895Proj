@@ -38,23 +38,7 @@ export class ContactComponent implements OnInit {
   campaign: boolean = false;
   triggerLengthChange: boolean = false;
   ngOnInit() {
-    ///Code for the observables. doesnt work yet.
-    // this.dataService.sendContactLength.subscribe(triggerLengthChange =>{
-    //   this.triggerLengthChange = triggerLengthChange;
-    //   // contactsLengthServiceNo = this.dataService.contactsLengthServiceNo;
-    //   if(this.triggerLengthChange === true) {
-    //     console.log(`array length ${this.arrayLength}`)
-    //     this.arrayLength--;
-    //     console.log(`array length ${this.arrayLength}`)
-    //     // if (this.arraySpot > contactsLengthServiceNo) {
-    //     //   console.log(`array length ${this.arraySpot}`)
-    //     //   this.arraySpot--;
-    //     //   console.log(`array length ${this.arraySpot}`)
-    //     // }
-    //     this.triggerLengthChange = false;
-    //   }
-    // }
-    // )
+
   }
   // TODO: Change deleteContact to its own Service.
   deleteContact(id) {
@@ -90,9 +74,6 @@ export class ContactComponent implements OnInit {
 
   // Create an Observable that will listen to the dataService
   observeArray = new Observable((observer) => {
-    // use the next and error callbacks, passed
-    // when the consumer subscribes
-    // const {next, error} = observer;
 
     if (this.dataService.decreasedState === true) {
       // need to have an obj item that shows what array got deleted here.
@@ -102,12 +83,7 @@ export class ContactComponent implements OnInit {
   })
 
 
-  editContact(){
+  editContact(){}
 
-  }
-
-  
-
-  
 
 }

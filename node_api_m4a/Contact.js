@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const ContactSchema = new mongoose.Schema({
-  firstName: String,
-  lastName: String,
-  address: String,
-  phonenumber: String,
-  email: String,
+  firstName: {type: String, required: true},
+  lastName: {type: String, required: true},
+  address: {type: String, required: true},
+  phonenumber: {type: String, required: true},
+  email: {type: String, required: false},
   timeAdded: String,
   pronoun: String,
   additionalNotes: Array,
@@ -15,6 +15,7 @@ const ContactSchema = new mongoose.Schema({
   geoLocation_lng : String,
   preferredName: String,
   editedBy: String,
+  zipcode: String,
   preferences: {
     supportACA: String,
     votedInMidterms : String,

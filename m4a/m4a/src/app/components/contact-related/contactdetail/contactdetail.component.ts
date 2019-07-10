@@ -29,8 +29,7 @@ export class ContactdetailComponent implements OnInit {
   urlSafe: SafeResourceUrl;
   lat: number;
   lng: number;
-  // lat: string;
-  // lng: string;
+
 
   contactId: string;
   contactDetail: Object = { };
@@ -46,10 +45,7 @@ export class ContactdetailComponent implements OnInit {
     this.contactId = this.route.snapshot.params.id;
     this.getContactDetail(this.contactId);
   }
-  // buildQuery(){
-  //   const address = `&q=${this.contactDetail.address.split(' ').join('+')},`;
-  //   const city = ``
-  // }
+
   getContactDetail(contactId) {
     return this.http
       .request(`${apiUrl}/contacts/${contactId}`)
