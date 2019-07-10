@@ -1,7 +1,4 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-
-import { User } from '../../../_models/index';
-import { UserService } from '../../../_services/index';
 @Component({
   moduleId: module.id,
   selector: 'app-home',

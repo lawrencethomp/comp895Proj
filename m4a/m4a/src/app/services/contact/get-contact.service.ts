@@ -9,7 +9,6 @@ export class GetContactService {
   contactInfo: Object = {};
   private httpClient: HttpClient;
   // id: String;
-  // TODO: start here!
   // TODO: remove login related logic
   // TODO: Form logic to stop repeating myself
   constructor(private _http: HttpClient) {}
