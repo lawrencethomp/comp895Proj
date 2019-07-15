@@ -66,51 +66,51 @@ export class ContactGraph {
 
 
 
-export let contactOne = new Contact(
-    'Lawrence',
-    'Thompson',
-    '86 Liberty Street',
-    'lawrencethomp@gmail.com',
-    '6033692893',
-    'He',
-    'cool',
-    '43.00885590000001, -71.44774689999997'
-    );
+// export let contactOne = new Contact(
+//     'Lawrence',
+//     'Thompson',
+//     '86 Liberty Street',
+//     'lawrencethomp@gmail.com',
+//     '6033692893',
+//     'He',
+//     'cool',
+//     '43.00885590000001, -71.44774689999997'
+//     );
 
-let contactTwo = new Contact(
-    'Mario',
-    'Thompson',
-    '9809 Conbes Drive',
-    'mario.thompson@hotmail.com',
-    '6033692895',
-    'He',
-    'great',
-    '29.4241219, -98.49362819999999'
-);
+// let contactTwo = new Contact(
+//     'Mario',
+//     'Thompson',
+//     '9809 Conbes Drive',
+//     'mario.thompson@hotmail.com',
+//     '6033692895',
+//     'He',
+//     'great',
+//     '29.4241219, -98.49362819999999'
+// );
 
-let contactThree = new Contact(
-    'Carlotta',
-    'Thompson',
-    '211 River Road',
-    'vze2157d@gmail.com',
-    '6033692894',
-    'She',
-    'nice',
-    '44.2805487, -69.7765604'
-);
+// let contactThree = new Contact(
+//     'Carlotta',
+//     'Thompson',
+//     '211 River Road',
+//     'vze2157d@gmail.com',
+//     '6033692894',
+//     'She',
+//     'nice',
+//     '44.2805487, -69.7765604'
+// );
 
-let contactFour = new Contact(
-    'Leigh',
-    'Nicole',
-    '203 West Leaf',
-    'leighnicole@gmail.com',
-    '6033692893',
-    'SHE',
-    'neat',
-    '43.2081366, -71.53757180000002'
-);
+// let contactFour = new Contact(
+//     'Leigh',
+//     'Nicole',
+//     '203 West Leaf',
+//     'leighnicole@gmail.com',
+//     '6033692893',
+//     'SHE',
+//     'neat',
+//     '43.2081366, -71.53757180000002'
+// );
 
-export let contacts : Array<Contact> = [
-    contactOne, contactTwo, 
-    contactThree, contactFour
-];
+// export let contacts : Array<Contact> = [
+//     contactOne, contactTwo, 
+//     contactThree, contactFour
+// ];

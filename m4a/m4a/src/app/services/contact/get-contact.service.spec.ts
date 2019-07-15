@@ -16,19 +16,19 @@ describe('Service: GetContactService', () => {
         HttpClientTestingModule
       ],
       providers: [
-        GetContactService
+        ContactService
         ]
     });
-    getContactService = TestBed.get(GetContactService);
+    getContactService = TestBed.get(ContactService);
     httpMock = TestBed.get(HttpTestingController);
 
   });
-  it('should be created', inject([GetContactService], (service: GetContactService) => {
+  it('should be created', inject([ContactService], (service: GetContactService) => {
     expect(service).toBeTruthy();
   }));
 
   fit('Should be able to get an individual Contact', () => {
-    inject([HttpClientTestingModule, GetContactService], 
+    inject([HttpClientTestingModule, ContactService], 
       (httpMock: HttpTestingController, service: GetContactService) => {
         service.getContact('5be73ad71024e74d6c8b58dd').subscribe(data => {
           const contactInfo = data;

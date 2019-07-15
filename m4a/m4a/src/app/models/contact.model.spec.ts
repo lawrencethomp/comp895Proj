@@ -35,11 +35,11 @@ describe('Testing the Contact Model', () => {
         model.email = 'lawrencethomp@gmail.com'
     });
     it('Should be able to get phone number', function() {
-        expect(model.phonenumber).toBe('6033692893');
+        expect(model.phoneNumber).toBe('6033692893');
     });
     it('Should be able to set phone number', function() {
-        model.phonenumber = '6033692894';
-        expect(model.phonenumber).toBe('6033692894');
+        model.phoneNumber = '6033692894';
+        expect(model.phoneNumber).toBe('6033692894');
     });
     it('Should be able to get someones pronoun', function() {
         expect(model.pronoun).toBe('He');

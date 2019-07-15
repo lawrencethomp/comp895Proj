@@ -16,53 +16,53 @@ import { Contact } from '../../../models/contact.model';
 export class CampaignComponent implements OnInit {
 
   // TODO: Make campaign contacts be a Contact only type.
-  contactOne = new Contact(
-    'Lawrence',
-    'Thompson',
-    '86 Liberty Street',
-    'lawrencethomp@gmail.com',
-    '6033692893',
-    'He',
-    'cool',
-    '43.00885590000001, -71.44774689999997'
-    )
+//   contactOne = new Contact(
+//     'Lawrence',
+//     'Thompson',
+//     '86 Liberty Street',
+//     'lawrencethomp@gmail.com',
+//     '6033692893',
+//     'He',
+//     'cool',
+//     '43.00885590000001, -71.44774689999997'
+//     )
 
-contactTwo = new Contact(
-    'Mario',
-    'Thompson',
-    '9809 Conbes Drive',
-    'mario.thompson@hotmail.com',
-    '6033692895',
-    'He',
-    'great',
-    '29.4241219, -98.49362819999999'
-)
+// contactTwo = new Contact(
+//     'Mario',
+//     'Thompson',
+//     '9809 Conbes Drive',
+//     'mario.thompson@hotmail.com',
+//     '6033692895',
+//     'He',
+//     'great',
+//     '29.4241219, -98.49362819999999'
+// )
 
-contactThree = new Contact(
-    'Carlotta',
-    'Thompson',
-    '211 River Road',
-    'vze2157d@gmail.com',
-    '6033692894',
-    'She',
-    'nice',
-    '44.2805487, -69.7765604'
-)
+// contactThree = new Contact(
+//     'Carlotta',
+//     'Thompson',
+//     '211 River Road',
+//     'vze2157d@gmail.com',
+//     '6033692894',
+//     'She',
+//     'nice',
+//     '44.2805487, -69.7765604'
+// )
 
-contactFour = new Contact(
-    'Leigh',
-    'Nicole',
-    '203 West Leaf',
-    'leighnicole@gmail.com',
-    '6033692893',
-    'SHE',
-    'hot',
-    '43.2081366, -71.53757180000002'
-)
+// contactFour = new Contact(
+//     'Leigh',
+//     'Nicole',
+//     '203 West Leaf',
+//     'leighnicole@gmail.com',
+//     '6033692893',
+//     'SHE',
+//     'hot',
+//     '43.2081366, -71.53757180000002'
+// )
   campaignContacts: any = [ ];
-  testContacts = [
-    this.contactOne, this.contactTwo, this.contactThree, this.contactFour
-  ];
+  // testContacts = [
+  //   this.contactOne, this.contactTwo, this.contactThree, this.contactFour
+  // ];
   currentContact: Object;
   spot = 0;
 
@@ -89,7 +89,7 @@ contactFour = new Contact(
     this.parsefloatify();
     this.queryBuilder = this.buildQueryInformation(this.campaignContacts);
     this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.builtLink);
-    console.table(this.testContacts);
+//    console.table(this.testContacts);
     // var mapProp = {
     //   center: new google.maps.LatLng(18.5793, 73.8143),
     //   zoom: 15,
@@ -113,9 +113,9 @@ contactFour = new Contact(
 
   parsefloatify() {
     for (var i = 0; i < this.campaignContacts.length; i++) {
-      this.testContacts[i]['fLat'] = parseFloat(this.campaignContacts[i].geoLocation_lat);
-      this.testContacts[i]['fLng'] = parseFloat(this.campaignContacts[i].geoLocation_lng);
-      console.log(`worked ${this.campaignContacts[i]['fLat']}`);
+      // this.testContacts[i]['fLat'] = parseFloat(this.campaignContacts[i].geoLocation_lat);
+      // this.testContacts[i]['fLng'] = parseFloat(this.campaignContacts[i].geoLocation_lng);
+      // console.log(`worked ${this.campaignContacts[i]['fLat']}`);
     }
 
   }

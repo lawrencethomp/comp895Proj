@@ -1,110 +1,169 @@
-export class Contact {
+import { Deserializable } from './deserializable.model';
+// TODO: figure out preferences
+export class Contact implements Deserializable {
     // TODO: Actually use this.
-    private _firstName: string;
-    private _lastName: string;
-    private _address: string;
-    private _email: string;
-    private _phonenumber: string;
-    private _pronoun: string;
-    private _additionalNotes: string;
-    private _geoLocation: string;
-    public objectID: string;
+     firstName: string;
+     lastName: string;
+     address: string;
+     email: string;
+     phoneNumber: string;
+     pronoun: string;
+     additionalNotes: string;
+     geoLocation_lat: string;
+     objectID: string;
+     city: string;
+     state: string;
+     lastEdited: string;
+     geoLocation_lng: string;
+     zipcode: string;
+     addedBy: string;
+     timeAdded: string;
+     preferredName: string;
+     _id: string;
+    //  _preferences: Object;
+    //  _supportACA: string;
+    //  _votedInMidterms: string;
+    //  _politicalViews: string;
+    //  _supportM4A: string;
+    //  _income: string;
+
     constructor(
-        firstName: string,
-        lastName: string,
-        address: string,
-        email: string,
-        phonenumber: string,
-        pronoun: string,
-        additionalNotes: string,
-        geoLocation: string,
+        // firstName: string,
+        // lastName: string,
+        // address: string,
+        // email: string,
+        // phonenumber: string,
+        // pronoun: string,
+        // additionalNotes: string,
+        // geoLocation_lat: string,
+        // geoLocation_lng: string,
+        // city: string,
+        // state: string,
+        // lastEdited: string,
+        // zipcode: string,
+        // addedBy: string,
+        // timeAdded: string,
+        // preferredName: string,
+        // supportACA: string,
+        // votedInMidterms: string,
+        // politicalViews: string,
+        // supportM4A: string,
+        // income: string
     ) {
-        this._firstName = firstName;
-        this._lastName = lastName;
-        this._address = address;
-        this._email = email;
-        this._phonenumber = phonenumber;
-        this._pronoun = pronoun;
-        this._additionalNotes = additionalNotes;
-        this._geoLocation = geoLocation;
+        // this._firstName = firstName;
+        // this._lastName = lastName;
+        // this._address = address;
+        // this._email = email;
+        // this._phonenumber = phonenumber;
+        // this._pronoun = pronoun;
+        // this._additionalNotes = additionalNotes;
+        // this._geoLocation_lat = geoLocation_lat;
+        // this._geoLocation_lng = geoLocation_lng;
+        // this._city = city;
+        // this._state = state;
+        // this._LastEdited = lastEdited;
+        // this._zipcode = zipcode;
+        // this._addedBy = addedBy;
+        // this._timeAdded = timeAdded;
+        // this._preferredName = preferredName;
+        // this._preferences = {
+        //       this._supportACA = supportACA,
+        //       this._supportM4A = supportM4A,
+        //       this._votedInMidterms = votedInMidterms,
+        //       this._politicalViews = politicalViews,
+        //       this._income = income;
+        // };
+
         this.objectID = this.makeid();
     }
-    get firstName(): string {
-        return this._firstName;
-    }
+    // getFirstName(): string {
+    //     return this.firstName;
+    // }
 
-    set firstName(name) {
-        this._firstName = name;
-    }
+    // set firstName(name) {
+    //     this.firstName = name;
+    // }
 
-    get lastName(): string {
-        return this._lastName;
-    }
+    // getFullName() {
+    //     return this.firstName + ' ' + this.lastName;
+    // }
 
-    set lastName(name) {
-        this._lastName = name;
-    }
+    // get lastName(): string {
+    //     return this.lastName;
+    // }
 
-    get address(): string {
-        return this._address;
-    }
+    // set lastName(name) {
+    //     this.lastName = name;
+    // }
 
-    set address(address) {
-        this._address = address;
-    }
+    // get address(): string {
+    //     return this.address;
+    // }
 
-    get email(): string {
-        return this._email;
-    }
+    // set address(address) {
+    //     this.address = address;
+    // }
 
-    set email(email) {
-        this._email = email;
-    }
+    // get email(): string {
+    //     return this.email;
+    // }
 
-    get phonenumber(): string {
-        return this._phonenumber;
-    }
+    // set email(email) {
+    //     this.email = email;
+    // }
 
-    set phonenumber(phonenumber) {
-        this._phonenumber = phonenumber;
-    }
+    // get phonenumber(): string {
+    //     return this.phonenumber;
+    // }
 
-    get pronoun(): string {
-        return this._pronoun;
-    }
+    // set phonenumber(phonenumber) {
+    //     this.phonenumber = phonenumber;
+    // }
 
-    set pronoun(pronoun) {
-        this._pronoun = pronoun;
-    }
+    // get pronoun(): string {
+    //     return this.pronoun;
+    // }
 
-    get additionalNotes(): string {
-        return this._additionalNotes;
-    }
-    set additionalNotes(notes) {
-        this._additionalNotes = notes;
-    }
+    // set pronoun(pronoun) {
+    //     this.pronoun = pronoun;
+    // }
 
-    get geoLocation(): string {
-        return this._geoLocation;
-    }
+    // get additionalNotes(): string {
+    //     return this.additionalNotes;
+    // }
+    // set additionalNotes(notes) {
+    //     this._additionalNotes = notes;
+    // }
 
-    set geoLocation(geoLocation) {
-        this._geoLocation = geoLocation;
-    }
+    // get geoLocation_lat(): string {
+    //     return this._geoLocation_lat;
+    // }
+
+    // set geoLocation_lat(_geoLocation_lat) {
+    //     this._geoLocation_lat = _geoLocation_lat;
+    // }
+
+    // get geoLocation_lng(): string {
+    //     return this._geoLocation_lng;
+    // }
+
+    // set geoLocation_lng(_geoLocation_lng) {
+    //     this._geoLocation_lng = _geoLocation_lng;
+    // }
 
     /***
      *  @function getLatitude
      *  @returns String
      */
-    getLatitude(point: string) {
-        const geo = this._geoLocation.split(', ');
-        switch (point) {
-            case 'latitude':
-                return geo[0];
-            case 'longitude':
-                return geo[1];
-            }
-    }
+    // getLatitude(point: string) {
+    //     const geo = this._geoLocation.split(', ');
+    //     switch (point) {
+    //         case 'latitude':
+    //             return geo[0];
+    //         case 'longitude':
+    //             return geo[1];
+    //         }
+    // }
 
     /***
      *  @function generateID - generate the ID for the contact.
@@ -118,4 +177,10 @@ export class Contact {
         }
         return text;
     }
+
+    deserialize(input: any) {
+        Object.assign(this, input);
+        return this;
+      }
+
 }
