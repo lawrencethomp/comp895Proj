@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Node } from './node.model';
 import { Edge } from './edge.model';
-import { contactOne } from './contactGraph.model';
 import { Contact } from './contact.model';
 describe('Testing the Node Model', () => {
     let model: Node;

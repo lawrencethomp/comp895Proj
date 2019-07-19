@@ -1,4 +1,4 @@
-var Contact = require('./Contact');
+var Contact = require('../Contact');
 
 const createContact = (req, res) => {
     Contact.create({

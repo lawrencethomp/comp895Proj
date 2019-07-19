@@ -27,45 +27,45 @@ export class Contact implements Deserializable {
     //  _supportM4A: string;
     //  _income: string;
 
+    // TODO: make additional notes its own object
+    // TODO: make nested items, this is confusing
+    
     constructor(
-        // firstName: string,
-        // lastName: string,
-        // address: string,
-        // email: string,
-        // phonenumber: string,
-        // pronoun: string,
-        // additionalNotes: string,
-        // geoLocation_lat: string,
-        // geoLocation_lng: string,
-        // city: string,
-        // state: string,
-        // lastEdited: string,
-        // zipcode: string,
-        // addedBy: string,
-        // timeAdded: string,
-        // preferredName: string,
-        // supportACA: string,
-        // votedInMidterms: string,
-        // politicalViews: string,
-        // supportM4A: string,
-        // income: string
+        firstName: string,
+        lastName: string,
+        address: string,
+        email: string,
+        phoneNumber: string,
+        pronoun: string,
+        additionalNotes: string,
+        geoLocation_lat: string,
+        geoLocation_lng: string,
+        city: string,
+        state: string,
+        lastEdited: string,
+        zipcode: string,
+        addedBy: string,
+        timeAdded: string,
+        preferredName: string,
+        _id: string
     ) {
-        // this._firstName = firstName;
-        // this._lastName = lastName;
-        // this._address = address;
-        // this._email = email;
-        // this._phonenumber = phonenumber;
-        // this._pronoun = pronoun;
-        // this._additionalNotes = additionalNotes;
-        // this._geoLocation_lat = geoLocation_lat;
-        // this._geoLocation_lng = geoLocation_lng;
-        // this._city = city;
-        // this._state = state;
-        // this._LastEdited = lastEdited;
-        // this._zipcode = zipcode;
-        // this._addedBy = addedBy;
-        // this._timeAdded = timeAdded;
-        // this._preferredName = preferredName;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.pronoun = pronoun;
+        this.additionalNotes = additionalNotes;
+        this.geoLocation_lat = geoLocation_lat;
+        this.geoLocation_lng = geoLocation_lng;
+        this.city = city;
+        this.state = state;
+        this.zipcode = zipcode;
+        this.addedBy = addedBy;
+        this.lastEdited = lastEdited;
+        this.timeAdded = timeAdded;
+        this.preferredName = preferredName;
+        this._id = _id;
         // this._preferences = {
         //       this._supportACA = supportACA,
         //       this._supportM4A = supportM4A,

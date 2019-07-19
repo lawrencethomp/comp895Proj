@@ -12,6 +12,8 @@ import { Observable, observable } from 'rxjs';
 import { apiUrl } from '../../../../../apiConfig';
 import { Contact } from '../../../models/contact.model';
 import { GetContactService } from '../../../services/contact/get-contact.service';
+import {CampaignService} from '../../../campaign.service';
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -22,11 +24,12 @@ export class ContactComponent implements OnInit {
   contact: Contact;
   constructor(private http: HttpClient,
               private dataService: DataService,
-              private getContactService: GetContactService
+              private getContactService: GetContactService,
+              private campaignService: CampaignService
               ) { }
 
   @Input()
-  contactData: Object;
+  contactData: Contact;
   @Input()
   arraySpot: number;
   @Input()
@@ -35,7 +38,7 @@ export class ContactComponent implements OnInit {
   contactURL = `${apiUrl}/contacts`;
   _ref: any;
   living: boolean = true;
-  campaign: boolean = false;
+  addedToCampaign: boolean = false;
   triggerLengthChange: boolean = false;
   ngOnInit() {
 
@@ -56,18 +59,15 @@ export class ContactComponent implements OnInit {
 
   // TODO: Switch ChangeStatus so that it is its own Service or part of another
   changeStatus() {
-    if (this.campaign === false) {
-      this.dataService.addContact(this.contactData);
-      console.log(this.dataService.campaignData);
-      return this.campaign = true;
+    if (this.addedToCampaign === false) {
+      this.campaignService.addContact(this.contactData)
+      console.log(this.campaignService.campaignData);
+      return this.addedToCampaign = true;
     }
-    if (this.campaign === true) {
-      this.dataService.campaignData.splice(
-        _.indexOf(this.dataService.campaignData, _.findWhere(
-            this.dataService.campaignData, { _id : this.contactData })), 1
-      );
-      console.log(this.dataService.campaignData);
-      return this.campaign = false;
+    if (this.addedToCampaign === true) {
+      this.campaignService.removeContact(this.contactData, this.contactData._id);
+      console.log(this.campaignService.campaignData);
+      return this.addedToCampaign = false;
     }
   }
 

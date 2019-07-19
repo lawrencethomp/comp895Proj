@@ -15,42 +15,6 @@ let expectMethods = require('./support/ExpectMethods');
 // TODO: update naming scheme to reflect industry standards.
 // TODO: add tests to test around edge cases from book.
 
-// const check200 =  (requestStatus) => {
-//     return expect(requestStatus).toBe(200);
-// };
-
-// const checkError = (error, bool) => {
-//     return expect(error).toBe(bool);
-// };
-
-// const isObject = (entity) => {
-//     return expect(typeof entity).toBe('object');
-// } 
-
-// const checkPageLength = (page, pageLength) => {
-//     return expect(page).toBe(pageLength);
-// }
-
-// const isNot = (entityOne, entityTwo) => {
-//     return expect(entityOne).not.toBe(entityTwo);
-// }
-
-// const checkString = (string1, string2) => {
-//     return expect(string1).toBe(string2);
-// }
-
-// const check500 = (response) => {
-//     expect(response.status).toBe(500);
-// }; 
-
-// const check404 = (response) => {
-//     expect(response.status).toBe(404);
-// };
-
-// const isEqual = ( entityOne, entityTwo) => {
-//     expect(entityOne).toEqual(entityTwo);
-// };
-
 describe('Contact API Integration Tests', () => {
     describe('#GET / contacts', () => {
         test('Should get all contacts on request', async () => {

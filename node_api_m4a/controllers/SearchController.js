@@ -5,7 +5,7 @@ var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://lawrencethomp:dryboy88@ds143201.mlab.com:43201/";
 var router = express.Router();
 var bodyParser = require('body-parser');
-var Contact = require('./Contact');
+var Contact = require('../Contact');
 
 const getSearchResults = (req, res) => {
     var firstName = req.query.firstName;

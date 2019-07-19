@@ -50,12 +50,13 @@
             <button class = "contactButton" >More Info</button>
         </a>
         <a class= "level-item ">
-        <button class = "contactButton">Add to campaign
-        <input
+        <button *ngIf="!addedToCampaign; else elseBlock" 
+        class = "contactButton"
+        (click) = "changeStatus()">Add to campaign
         
-              (click) = "changeStatus()"
-              type="checkbox">
+        
         </button>
+        <ng-template #elseBlock> <button class="contactButton" (click)= "changeStatus()"> Remove from Campaign</button></ng-template>
         </a>
             </footer>
       </div>
