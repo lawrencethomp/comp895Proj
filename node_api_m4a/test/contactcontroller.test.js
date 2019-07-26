@@ -1,13 +1,14 @@
 'use strict';
 
-var app = require('../app');
-var request = require('supertest');
-var expect = require('expect');
+
 
 let contactSeed = require('./seeds/contactSeed');
+
+let testMethods = require('./support/TestMethods');
+
+let expectMethods = require('./support/ExpectMethods');
 // TODO: see if destructing patterns can be implemented.
-var testContactFelixBiederman = contactSeed.contacts[0];
-var testContactWillMenaker = contactSeed.contacts[1];
+
 // test to perform get requests on an object
 
 // TODO: create functions to wrap around tests for readability.
@@ -17,78 +18,83 @@ var testContactWillMenaker = contactSeed.contacts[1];
 describe('Contact API Integration Tests', () => {
     describe('#GET / contacts', () => {
         test('Should get all contacts on request', async () => {
-            const response = await request(app).get('/contacts');
-            expect(response.status).toBe(200);
-            expect(typeof response).toBe('object');
-            expect(typeof response.body).toBe('object');
-            expect(response.error).toBe(false);            
+            const response = await testMethods.getAllContacts();
+            expectMethods.check200(response.status);
+            expectMethods.isObject(response);
+            expectMethods.isObject(response.body);
+            expectMethods.checkError(response.error, false);            
             });
         test('Should be able to get 25 objects', async () => {
-            const response = await request(app).get('/contacts?pageNo=1&size=25');
-            expect(response.body.message.length).toBe(25);
-
+            const response = await testMethods.getPageOfContacts(1, 25);
+            expectMethods.checkPageLength(response.body.message.length, 25);
         });
+
         test('Different pages should have different content', async () => {
-            const responseOne = await request(app).get('/contacts?pageNo=1&size=25');
-            const responseTwo = await request(app).get('/contacts?pageNo=2&size=25');
-            expect(responseOne.body.message[0]._id).not.toBe(responseTwo.body.message[0]._id)
+            const responseOne = await testMethods.getPageOfContacts(1, 25);
+            const responseTwo = await testMethods.getPageOfContacts(2, 25);
+            expectMethods.isNot(responseOne.body.message[0]._id, responseTwo.body.message[0]._id)
         });
         test('Should be able to get an individual contact', async () => {
-            const response = await request(app).get('/contacts/5be11f7aaf113737c430a683');
+            const response = await testMethods.getContact('5be11f7aaf113737c430a683');
             const firstName = await response.body.firstName;
             const lastName = await response.body.lastName;
             const _testId = await response.body._id;
-            expect(response.status).toBe(200);
-            expect(firstName).toBe('Bethany');                    
-            expect(lastName).toBe('Castle');
-            expect(_testId).toBe('5be11f7aaf113737c430a683');
+            expectMethods.check200(response.status);
+            expectMethods.checkString(firstName, 'Bethany');                    
+            expectMethods.checkString(lastName,'Castle');
+            expectMethods.checkString(_testId, '5be11f7aaf113737c430a683');
         })
-    });    
+    });
+ 
     describe('#POST / contacts', ()=> {
         test('Should be able to create an individual contact', async () => {
-            const response = await request(app).post('/contacts/').send(testContactFelixBiederman);
+            const response = await testMethods.createContact(contactSeed.felix);
             const firstName = await response.body.firstName;
             const _id = await response.body._id;
-            expect(firstName).toBe('Felix');
-            const deleteResponse = await request(app).delete(`/contacts/${_id}`);
-            expect(deleteResponse.status).toBe(200);
-            expect(deleteResponse.body).toBe("Contact was deleted.");
-
+            expectMethods.checkString(firstName, 'Felix');
+            const deleteResponse = await testMethods.deleteContact(_id);
+            expectMethods.check200(deleteResponse.status, 200);
+            expectMethods.checkString(deleteResponse.body, "Contact was deleted.");
+        })
+        test('Should be able to reject a contact without first name', async () => {
+            const response = await testMethods.createContact(contactSeed.badContactNoFirstName);
+            expectMethods.checkString(response.text, 'There was a problem adding the information to the database.');
+            expectMethods.check500(response);
+        })
+        test('Should be able to reject a contact without a last name', async() => {
+            const response = await testMethods.createContact(contactSeed.badContactNoLastName);            
+            expectMethods.checkString(response.text, 'There was a problem adding the information to the database.');
+            expectMethods.check500(response);
         })
     });
     describe('#DELETE / contacts', () => {
         test('Should be able to delete an individual contact', async () => {
-            const response = await request(app).post('/contacts/').send(testContactWillMenaker);
-            const removedContact = await request(app).delete(
-                `/contacts/${response.body._id}`
-            );
-            expect(removedContact.status).toBe(200);
-            expect(removedContact.body).toBe("Contact was deleted.");
+            const response = await testMethods.createContact(contactSeed.will);
+            const removedContact = await testMethods.deleteContact(response.body._id);
+            expectMethods.check200(removedContact.status);
+            expectMethods.checkString(removedContact.body, "Contact was deleted.");
         });
+
         test('Deleted contacts should return errors', async () => {
-            const response = await request(app).post('/contacts/').send(testContactWillMenaker);
-            const removedContact = await request(app).delete(
-                `/contacts/${response.body._id}`
-            );
-            expect(removedContact.status).toBe(200);
-            expect(removedContact.body).toBe("Contact was deleted.");
-            const deletedContact = await request(app).get(`/contacts/${response.body._id}`);
-            expect(deletedContact.status).toBe(404);
-            expect(deletedContact.body).toBe("No contact found.");     
+            const response = await testMethods.createContact(contactSeed.will);
+            const removedContact = await testMethods.deleteContact(response.body._id);
+
+            expectMethods.check200(removedContact.status);
+            expectMethods.checkString(removedContact.body, "Contact was deleted.");
+
+            const deletedContact = await testMethods.getContact(response.body._id);
+            
+            expectMethods.check404(deletedContact);
+            expectMethods.checkString(deletedContact.body, "No contact found.");     
         })
     })
     describe('# PUT / contacts', () =>{
         test('Should be able to change an individual contact', async () => {
-            const response = await request(app)
-                    .post(`/contacts/`)
-                    .send(testContactWillMenaker);
+            const response = await testMethods.createContact(contactSeed.will);
 
-            const updatedRequest = await request(app)
-                    .put(`/contacts/${response.body._id}`)
-                    .send({firstName: "William"});
-
-            expect(updatedRequest.body.firstName).toBe('William');
-            expect(response.body._id).toEqual(updatedRequest.body._id);
+            const updatedRequest = await testMethods.updateContact(response.body._id, {firstName: "William"});
+            expectMethods.checkString(updatedRequest.body.firstName, 'William');
+            expectMethods.isEqual(response.body._id, updatedRequest.body._id);
         })
     })
 });

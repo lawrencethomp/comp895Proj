@@ -10,8 +10,10 @@ import { map } from 'rxjs/operators';
 import * as _ from 'underscore';
 import { Observable, observable } from 'rxjs';
 import { apiUrl } from '../../../../../apiConfig';
-import { Contact } from '../../../models/contact.model';
+import { Contact } from '../../../models/contact/contact.model';
 import { GetContactService } from '../../../services/contact/get-contact.service';
+import {CampaignService} from '../../../services/campaign.service';
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -22,11 +24,12 @@ export class ContactComponent implements OnInit {
   contact: Contact;
   constructor(private http: HttpClient,
               private dataService: DataService,
-              private getContactService: GetContactService
+              private getContactService: GetContactService,
+              private campaignService: CampaignService
               ) { }
 
   @Input()
-  contactData: Object;
+  contactData: Contact;
   @Input()
   arraySpot: number;
   @Input()
@@ -35,26 +38,10 @@ export class ContactComponent implements OnInit {
   contactURL = `${apiUrl}/contacts`;
   _ref: any;
   living: boolean = true;
-  campaign: boolean = false;
+  addedToCampaign: boolean = false;
   triggerLengthChange: boolean = false;
   ngOnInit() {
-    ///Code for the observables. doesnt work yet.
-    // this.dataService.sendContactLength.subscribe(triggerLengthChange =>{
-    //   this.triggerLengthChange = triggerLengthChange;
-    //   // contactsLengthServiceNo = this.dataService.contactsLengthServiceNo;
-    //   if(this.triggerLengthChange === true) {
-    //     console.log(`array length ${this.arrayLength}`)
-    //     this.arrayLength--;
-    //     console.log(`array length ${this.arrayLength}`)
-    //     // if (this.arraySpot > contactsLengthServiceNo) {
-    //     //   console.log(`array length ${this.arraySpot}`)
-    //     //   this.arraySpot--;
-    //     //   console.log(`array length ${this.arraySpot}`)
-    //     // }
-    //     this.triggerLengthChange = false;
-    //   }
-    // }
-    // )
+
   }
   // TODO: Change deleteContact to its own Service.
   deleteContact(id) {
@@ -72,27 +59,21 @@ export class ContactComponent implements OnInit {
 
   // TODO: Switch ChangeStatus so that it is its own Service or part of another
   changeStatus() {
-    if (this.campaign === false) {
-      this.dataService.addContact(this.contactData);
-      console.log(this.dataService.campaignData);
-      return this.campaign = true;
+    if (this.addedToCampaign === false) {
+      this.campaignService.addContact(this.contactData)
+      console.log(this.campaignService.campaignData);
+      return this.addedToCampaign = true;
     }
-    if (this.campaign === true) {
-      this.dataService.campaignData.splice(
-        _.indexOf(this.dataService.campaignData, _.findWhere(
-            this.dataService.campaignData, { _id : this.contactData })), 1
-      );
-      console.log(this.dataService.campaignData);
-      return this.campaign = false;
+    if (this.addedToCampaign === true) {
+      this.campaignService.removeContact(this.contactData, this.contactData._id);
+      console.log(this.campaignService.campaignData);
+      return this.addedToCampaign = false;
     }
   }
 
 
   // Create an Observable that will listen to the dataService
   observeArray = new Observable((observer) => {
-    // use the next and error callbacks, passed
-    // when the consumer subscribes
-    // const {next, error} = observer;
 
     if (this.dataService.decreasedState === true) {
       // need to have an obj item that shows what array got deleted here.
@@ -102,12 +83,7 @@ export class ContactComponent implements OnInit {
   })
 
 
-  editContact(){
+  editContact(){}
 
-  }
-
-  
-
-  
 
 }

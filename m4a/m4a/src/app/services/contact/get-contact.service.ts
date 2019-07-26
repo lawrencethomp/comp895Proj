@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { apiUrl } from '../../../../apiConfig';
+import {Contact} from '../../models/contact/contact.model';
 import { Observable } from 'rxjs';
 import { NgForm } from '@angular/forms';
+import { map } from 'rxjs/operators';
 import * as moment from 'moment';
+import { Response } from '@angular/http';
+import {ContactSerializer} from '../../models/contact/contact.serializer.model';
 @Injectable()
 export class GetContactService {
   contactInfo: Object = {};
   private httpClient: HttpClient;
+  private serializer = new ContactSerializer();
   // id: String;
-  // TODO: start here!
   // TODO: remove login related logic
   // TODO: Form logic to stop repeating myself
   constructor(private _http: HttpClient) {}
@@ -17,12 +21,13 @@ export class GetContactService {
 
   contactUrl = `${apiUrl}/contacts`;
 
-  getContact(id) {
-    return this._http.get(`${this.contactUrl}/${id}`);
+  getContact(id): Observable<Contact> {
+    return this._http.get<Contact>(`${this.contactUrl}/${id}`);
   }
-
+  // TODO: implement QueryOptions
   getAllContacts(pageNo: number) {
-    return this._http.get(`${this.contactUrl}?pageNo=${pageNo}&size=25`);
+    return this._http
+      .get<Contact[]>(`${this.contactUrl}?pageNo=${pageNo}&size=25`);
   }
 
   editContact(form: NgForm, id) {

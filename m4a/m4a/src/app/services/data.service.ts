@@ -26,6 +26,13 @@ contactsLengthServiceNo: number;
 
 decreasedState: boolean = false;
 deletedItem: number;
+
+@Output() loadContacts: EventEmitter<boolean> = new EventEmitter();
+@Output() generateQueryString: EventEmitter<boolean> = new EventEmitter();
+@Output() paginateData: EventEmitter<boolean> = new EventEmitter();
+
+@Output() sendContactLength: EventEmitter<boolean> = new EventEmitter();
+
   constructor(private http: Http) { }
   getContacts() {
     // return this.http
@@ -40,11 +47,7 @@ deletedItem: number;
     //   .catch(this.handleError);
   }
 
-  @Output() loadContacts: EventEmitter<boolean> = new EventEmitter();
-  @Output() generateQueryString: EventEmitter<boolean> = new EventEmitter();
-  @Output() paginateData: EventEmitter<boolean> = new EventEmitter();
-  
-  @Output() sendContactLength: EventEmitter<boolean> = new EventEmitter();
+
 
   sendContactLengthInfo(){
     // this.triggerLengthChange = true;
@@ -91,8 +94,6 @@ deletedItem: number;
   addContact(contact) {
     this.campaignData.push(contact);
   }
-
-  // deleteContact()
 
   initContacts() {
     this.contactsInitiated = true;

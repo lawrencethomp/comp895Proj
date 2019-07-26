@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Http } from '@angular/http';
-import { apiUrl } from '../../../../../apiConfig'
+import { apiUrl } from '../../../../../apiConfig';
+import 'rxjs/add/operator/map';
+
 // import googleMapsClient = require('@google/maps');
 import { GoogleMaps } from 'svelte-google-maps-embed';
 import {
@@ -9,6 +11,8 @@ import {
   DomSanitizer
 } from '@angular/platform-browser';
 import { SafeResourceUrl } from '@angular/platform-browser/src/security/dom_sanitization_service';
+import { Observable } from 'rxjs';
+import { Contact } from '../../../models/contact/contact.model';
 
 
 
@@ -29,8 +33,7 @@ export class ContactdetailComponent implements OnInit {
   urlSafe: SafeResourceUrl;
   lat: number;
   lng: number;
-  // lat: string;
-  // lng: string;
+
 
   contactId: string;
   contactDetail: Object = { };
@@ -46,13 +49,11 @@ export class ContactdetailComponent implements OnInit {
     this.contactId = this.route.snapshot.params.id;
     this.getContactDetail(this.contactId);
   }
-  // buildQuery(){
-  //   const address = `&q=${this.contactDetail.address.split(' ').join('+')},`;
-  //   const city = ``
-  // }
+
   getContactDetail(contactId) {
     return this.http
       .request(`${apiUrl}/contacts/${contactId}`)
+// .map((res: Response) => res.json().response.map((contact: Contact) => new Contact().deserialize(contact)));
       .subscribe((res) => {
         this.contactDetail = res.json();
         if (this.contactDetail.hasOwnProperty('geoLocation_lat')) {

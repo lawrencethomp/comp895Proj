@@ -16,6 +16,11 @@
       "googlemaps",
       "node",
     ],
+    "paths": {
+      "os": [
+        "empty.ts"
+      ]
+    },
     "lib": [
       "es2015",
       "es2016",

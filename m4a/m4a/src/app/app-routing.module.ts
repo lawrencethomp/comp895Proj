@@ -9,7 +9,6 @@ import { HomeComponent } from './components/structural/home/home.component';
 import { GenerateTurfComponent } from './components/generate-turf/generate-turf.component';
 import { CreateContactComponent } from './components/contact-related/create-contact/create-contact.component';
 import { SearchComponent } from './components/search/search.component';
-import { GraphComponent } from './components/graph/graph.component';
 
 const routes: Routes = [
   {
@@ -28,10 +27,6 @@ const routes: Routes = [
   {
     path: 'createcontact',
     component: CreateContactComponent
-  },
-  {
-    path: 'graph',
-    component: GraphComponent
   },
   {
     path: 'turf',
