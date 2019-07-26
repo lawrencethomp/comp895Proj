@@ -12,7 +12,7 @@ import {
 } from '@angular/platform-browser';
 import { SafeResourceUrl } from '@angular/platform-browser/src/security/dom_sanitization_service';
 import { Observable } from 'rxjs';
-import { Contact } from '../../../models/contact.model';
+import { Contact } from '../../../models/contact/contact.model';
 
 
 

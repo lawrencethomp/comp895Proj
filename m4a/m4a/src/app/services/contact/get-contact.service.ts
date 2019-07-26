@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { apiUrl } from '../../../../apiConfig';
-import {Contact} from './../../models/contact.model';
+import {Contact} from '../../models/contact/contact.model';
 import { Observable } from 'rxjs';
 import { NgForm } from '@angular/forms';
 import { map } from 'rxjs/operators';
 import * as moment from 'moment';
 import { Response } from '@angular/http';
-import {ContactSerializer} from './../../models/contactserializer.model';
+import {ContactSerializer} from '../../models/contact/contact.serializer.model';
 @Injectable()
 export class GetContactService {
   contactInfo: Object = {};

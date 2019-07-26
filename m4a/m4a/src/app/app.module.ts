@@ -21,13 +21,12 @@ import { ContactdetailComponent } from './components/contact-related/contactdeta
 import { CampaignComponent } from './components/structural/campaign/campaign.component';
 import { SearchComponent } from './components/search/search.component';
 import { AgmCoreModule } from '@agm/core';
-import { GraphComponent } from './components/graph/graph.component';
 import {PhoneNumberService} from './services/phone-number/phone-number.service';
 import {CreateContactService} from './services/contact/create-contact.service';
 import {GetContactService} from './services/contact/get-contact.service';
 import { EmailServiceService } from './services/email/email-service.service';
-import { AddressService } from './address.service';
-import {CampaignService} from './campaign.service';
+import { AddressService } from './services/address.service';
+import {CampaignService} from './services/campaign.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +40,6 @@ import {CampaignService} from './campaign.service';
     ContactdetailComponent,
     CampaignComponent,
     SearchComponent,
-    GraphComponent
   ],
   imports: [
     BrowserModule,

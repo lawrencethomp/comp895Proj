@@ -10,9 +10,9 @@ import { map } from 'rxjs/operators';
 import * as _ from 'underscore';
 import { Observable, observable } from 'rxjs';
 import { apiUrl } from '../../../../../apiConfig';
-import { Contact } from '../../../models/contact.model';
+import { Contact } from '../../../models/contact/contact.model';
 import { GetContactService } from '../../../services/contact/get-contact.service';
-import {CampaignService} from '../../../campaign.service';
+import {CampaignService} from '../../../services/campaign.service';
 
 @Component({
   selector: 'app-contact',

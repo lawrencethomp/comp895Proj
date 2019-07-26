@@ -14,7 +14,8 @@ getTestBed().initTestEnvironment(
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting()
 );
+
 // Then we find all the tests.
-const context = require.context('./', true, /contactGraph.model\.spec\.ts$/);
+const context = require.context('./', true, /campaign.mediator.model\.spec\.ts$/);
 // And load the modules.
 context.keys().map(context);

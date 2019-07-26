@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AddressService } from '../../../address.service';
+import { AddressService } from '../../../services/address.service';
 @Component({
   selector: 'app-create-contact',
   templateUrl: './create-contact.component.html',

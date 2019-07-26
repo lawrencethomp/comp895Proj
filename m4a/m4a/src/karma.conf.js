@@ -12,7 +12,12 @@ module.exports = function(config) {
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
 
-
+    webpack: { 
+      node: { 
+        fs: 'empty', 
+      } 
+    },
+    externals: ['tls', 'net', 'fs'],
     // list of files / patterns to load in the browser
     files: [
       'app/**.js',

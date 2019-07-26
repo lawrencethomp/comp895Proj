@@ -6,7 +6,7 @@
 */
 
 import { Edge } from './edge.model';
-import { Contact } from './contact.model';
+import { Contact } from '../contact/contact.model';
 
 /**
  *
@@ -44,7 +44,8 @@ export class Node {
      * @function markUnVisited - mark the node as unvisited, which will make it another color.
      * @returns this.visited to false.
      *
-    */
+    *
+    * /
     markUnVisited() {
         return this.visited = false;
     }

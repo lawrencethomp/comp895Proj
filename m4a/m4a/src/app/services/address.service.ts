@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import * as request from 'request';
-import {GetContactService} from './services/contact/get-contact.service';
+import {GetContactService} from './contact/get-contact.service';
 
 @Injectable()
 export class AddressService {

@@ -4,8 +4,8 @@ import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { apiUrl } from '../../../../../apiConfig';
 import {GetContactService} from '../../../services/contact/get-contact.service';
-import { ContactSerializer } from '../../../models/contactserializer.model';
-import { Contact } from './../../../models/contact.model';
+import { ContactSerializer } from '../../../models/contact/contact.serializer.model';
+import { Contact } from '../../../models/contact/contact.model';
 
 @Component({
   selector: 'app-contact-list',
@@ -42,7 +42,7 @@ export class ContactListComponent implements OnInit {
         this.triggerLoading();
         // tslint:disable-next-line:forin tslint:disable-next-line:no-var-keyword
         for (var position in res.message) {
-          let contact = new Contact();
+          let contact = new Contact('', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
           contact = this.serializer.fromJson(res.message[position]);
           contactRequest.push(contact);
         }

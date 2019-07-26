@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
-import { Contact } from './models/contact.model';
+import { Contact } from '../models/contact/contact.model';
 @Injectable()
 export class CampaignService {
   campaignData = [];

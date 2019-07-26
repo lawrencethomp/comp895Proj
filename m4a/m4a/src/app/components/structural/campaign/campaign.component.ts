@@ -2,12 +2,12 @@
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../../services/data.service';
-import { CampaignService } from '../../../campaign.service';
+import { CampaignService } from '../../../services/campaign.service';
 import { SafeResourceUrl } from '@angular/platform-browser/src/security/dom_sanitization_service';
 import {DomSanitizer} from '@angular/platform-browser';
 import { ViewChild } from '@angular/core';
-
-import { Contact } from '../../../models/contact.model';
+import {CampaignMediator} from '../../../models/campaign/campaign.mediator.model';
+import { Contact } from '../../../models/contact/contact.model';
 
 @Component({
   selector: 'app-campaign',
@@ -20,14 +20,21 @@ export class CampaignComponent implements OnInit {
   // testContacts = [
   //   this.contactOne, this.contactTwo, this.contactThree, this.contactFour
   // ];
+
+
   currentContact: Object;
   spot = 0;
+  campaignMediator: CampaignMediator;
+  contactIdArray: Array<String>;
 
-  constructor(private http: Http,
+
+  constructor(
               private dataService: DataService,
               private sanitizer: DomSanitizer,
               private campaignService: CampaignService
-  ) { }
+  ) { 
+    this.campaignMediator = new CampaignMediator(this.campaignService.campaignData);
+  }
 
   //https://www.google.com/maps/dir/33.93729,-106.85761/33.91629,-106.866761/33.98729,-106.85861
 
@@ -50,8 +57,10 @@ export class CampaignComponent implements OnInit {
   }
 
   getCampaign() {
-    this.campaignContacts = this.campaignService.campaignData;
-    this.currentContact = this.campaignContacts[0];
+    this.campaignContacts = this.campaignMediator.contactArray;
+    this.currentContact = this.campaignMediator.currentContact;
+    console.table(this.currentContact);
+    console.log(this.campaignContacts);
   }
 
   parsefloatify() {
