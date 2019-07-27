@@ -2,7 +2,7 @@
 var Contact = require('../../Contact');
 
 
-felix = new Contact({ firstName: "Felix",
+const felix = new Contact({ firstName: "Felix",
     zipcode: "03104",
     lastName: "Biederman",
     address: "Chapo's Trap House",
@@ -26,7 +26,7 @@ felix = new Contact({ firstName: "Felix",
     }
 });
 
-badContactNoFirstName = new Contact({ lastName: "Christman",
+const badContactNoFirstName = new Contact({ lastName: "Christman",
 address: "Chapo's Trap House",
 phonenumber: '540-833-9000',
 email: "virgil@chapo.com",
@@ -48,7 +48,7 @@ preferences: {
     incomeLevel: "Well Off"
 }});
 
-badContactNoLastName = new Contact({
+const badContactNoLastName = new Contact({
     firstName: "Matt",
     address: "Chapo's Trap House",
     phonenumber: '540-833-9000',
@@ -72,7 +72,7 @@ badContactNoLastName = new Contact({
     }
 })
 
-matt = new Contact({
+const matt = new Contact({
     firstName: "Matt",
     lastName: "Christman",
     address: "Chapo's Trap House",
@@ -97,7 +97,7 @@ matt = new Contact({
     }
 });
 
-will = new Contact(
+const will = new Contact(
     {
         firstName: "Will",
         lastName: "Menaker",

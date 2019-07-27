@@ -39,13 +39,6 @@ export class Node {
         this.edgeArray.push(edge);
     }
 
-    /**
-     *
-     * @function markUnVisited - mark the node as unvisited, which will make it another color.
-     * @returns this.visited to false.
-     *
-    *
-    * /
     markUnVisited() {
         return this.visited = false;
     }

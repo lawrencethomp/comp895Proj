@@ -56,15 +56,6 @@ router.get('/', function(req, res) {
 
  } );
 
-// need to make something that hits endpoints.
-
-// 1st step: create something that has an exact search
-    // going to use find one here
-    // https://www.w3schools.com/nodejs/nodejs_mongodb_find.asp
-    // create something that works with the front end
-        // something with a search section. search bar.
-
-
 
 // next step: create something that has a state name function search & zipcode
 module.exports.getSearchResults = getSearchResults;
