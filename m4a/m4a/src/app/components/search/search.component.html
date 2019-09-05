@@ -1,15 +1,40 @@
 
-
+<form
+    (ngSubmit)="searchDB(searchForm.form)"
+    #searchForm="ngForm">
 <input
-    #firstName
+    ngModel
+    name= "firstName"
     type="text"
     placeholder="First Name..."
     class="groove">
 <input
-    #lastName
+    ngModel
+    name ="lastName"
     type="text"
     placeholder="Last Name..."
     class="groove"> <br>
+
+<input
+    ngModel
+    name ="address"
+    type="text"
+    placeholder="Address"
+    class="groove">
+
+<input
+    ngModel
+    name ="phoneNumber"
+    type="text"
+    placeholder="Phone Number"
+    class="groove">
+
+<input
+    ngModel
+    name ="zipCode"
+    type="text"
+    placeholder="Zipcode"
+    class="groove"><br>
 
     <h2>Preferences</h2>
     Voted in the Midterms: <input type="radio"
@@ -67,17 +92,17 @@
                     </select> <br>
 
 
-<button id ="searchButton"
-        type="button"
-        (click) ="searchDB(firstName.value, lastName.value, supportACA.value, supportM4A.value,  incomeLevel.value, politicalView.value, voted.value)">
+<button>
 <i class="fa fa-search" aria-hidden="true"></i>
 </button> <br>
 
-<div ng-if="searchCompleted = true">
+</form>
+
+<div ng-if="searchCompleted == true">
     <app-contact
-        *ngFor="let contact of contacts; index as i; let l = count"
+        *ngFor="let contact of searchResults; index as i; let l = count"
         [contactData]=contact
         [arraySpot]=i
-        [arrayLength]=contacts.length>
+        [arrayLength]=searchResults.length>
     </app-contact>
 </div>

@@ -1,10 +1,10 @@
-import { Contact } from "../contact/contact.model";
-import { ContactHandler } from "../contact/contact.handler.model";
+import { Contact } from '../contact/contact.model';
+import { ContactHandler } from '../contact/contact.handler.model';
 
 
 export class CampaignMediator {
 
-    contactIDArray: Array<String>;
+    contactIDArray: any;
     contactArray: Array<Contact>;
     contactHandlerModel: ContactHandler;
     currentContact;
@@ -19,7 +19,7 @@ export class CampaignMediator {
     // service -> Mediator -> Component
 
     init() {
-        
+
     }
 
     changeContact(direction: string) {

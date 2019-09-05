@@ -1,6 +1,6 @@
-import { ContactGraph } from "../graph/contact.graph.model";
-import { Contact } from "./contact.model";
-import { Node } from "../graph/node.model";
+import { ContactGraph } from '../graph/contact.graph.model';
+import { Contact } from './contact.model';
+import { Node } from '../graph/node.model';
 
 import GraphVertex from '../graph/contact.graph.vertext.model';
 import GraphEdge from '../graph/contact.graph.edge.model';
@@ -34,9 +34,9 @@ export class ContactHandler {
   getLocation(){
   geolocation.getCurrentPosition(function (err, position) {
     console.log('here');
-    if (err) throw err
+    if (err) {throw err}
     console.log(position)
-    });   
+    })
   }
 
   createGraphVertex(id) {
@@ -82,17 +82,18 @@ export class ContactHandler {
     dist = Math.acos(dist);
     dist = dist * 180 / Math.PI;
     dist = dist * 60 * 1.1515;
-    
+
     return dist;
 }
 
 
-  
-  getTravelingSalesmanArray() {
-    const travelingSalesmanPath = bfTravellingSalesman(this.graph);
+
+  async getTravelingSalesmanArray() {
+    let travelingSalesmanPath;
+    travelingSalesmanPath = bfTravellingSalesman(this.graph);
     const travelingSalemanArray = travelingSalesmanPath.map(
       (node) => { return node.getKey();
-    })
+    });
     return travelingSalemanArray;
   }
 

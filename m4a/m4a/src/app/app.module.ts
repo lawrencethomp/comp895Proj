@@ -27,6 +27,7 @@ import {GetContactService} from './services/contact/get-contact.service';
 import { EmailServiceService } from './services/email/email-service.service';
 import { AddressService } from './services/address.service';
 import {CampaignService} from './services/campaign.service';
+import { SearchService } from './services/search.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +61,8 @@ import {CampaignService} from './services/campaign.service';
         GetContactService,
         EmailServiceService,
         AddressService,
-        CampaignService
+        CampaignService,
+        SearchService
         ],
   bootstrap: [AppComponent]
 })

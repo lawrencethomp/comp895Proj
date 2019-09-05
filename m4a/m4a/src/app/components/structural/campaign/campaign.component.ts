@@ -7,7 +7,6 @@ import { SafeResourceUrl } from '@angular/platform-browser/src/security/dom_sani
 import {DomSanitizer} from '@angular/platform-browser';
 import { ViewChild } from '@angular/core';
 import {CampaignMediator} from '../../../models/campaign/campaign.mediator.model';
-import { Contact } from '../../../models/contact/contact.model';
 
 @Component({
   selector: 'app-campaign',
@@ -32,7 +31,7 @@ export class CampaignComponent implements OnInit {
               private dataService: DataService,
               private sanitizer: DomSanitizer,
               private campaignService: CampaignService
-  ) { 
+  ) {
     this.campaignMediator = new CampaignMediator(this.campaignService.campaignData);
   }
 
@@ -57,17 +56,15 @@ export class CampaignComponent implements OnInit {
   }
 
   getCampaign() {
-    this.campaignContacts = this.campaignMediator.contactArray;
+    this.campaignContacts = this.campaignMediator.contactArray.slice(1);
     this.currentContact = this.campaignMediator.currentContact;
-    console.table(this.currentContact);
-    console.log(this.campaignContacts);
   }
 
   parsefloatify() {
     for (var i = 0; i < this.campaignContacts.length; i++) {
-      // this.testContacts[i]['fLat'] = parseFloat(this.campaignContacts[i].geoLocation_lat);
-      // this.testContacts[i]['fLng'] = parseFloat(this.campaignContacts[i].geoLocation_lng);
-      // console.log(`worked ${this.campaignContacts[i]['fLat']}`);
+      this.campaignContacts[i]['fLat'] = parseFloat(this.campaignContacts[i].geoLocation_lat);
+      this.campaignContacts[i]['fLng'] = parseFloat(this.campaignContacts[i].geoLocation_lng);
+      console.log(`worked ${this.campaignContacts[i]['fLat']}`);
     }
 
   }
@@ -79,41 +76,39 @@ export class CampaignComponent implements OnInit {
    */
   switchContact(direction: String) {
     if (direction === 'forward') {
-      this.spot++;
-      this.currentContact = this.campaignContacts[this.spot];
+      this.campaignMediator.changeContact('forward');
+      this.currentContact = this.campaignMediator.currentContact;
     } else if (direction === 'backward') {
-      this.spot--;
-      this.currentContact = this.campaignContacts[this.spot];}
-    return this.currentContact;
+      this.campaignMediator.changeContact('backward');
+      this.currentContact = this.campaignMediator.currentContact;
   }
+}
 
   buildQueryInformation(campaignContacts) {
     let queryString: string = '';
     for  (var i = 0; i < campaignContacts.length; i++) {
       queryString += `/${campaignContacts[i].geoLocation_lat},${campaignContacts[i].geoLocation_lng}`;
     }
+    console.log(queryString);
     return queryString;
   }
 
   /**
    *  Campaign data is passed to the function, this needs to be distributed right.
    *
-   */
+  */
 
 
-   /**
+  /**
     * postNote - Will do a concatination of a string on a contact.
     * @param note
-    */
+  */
    // TODO: add a note array with notes.
   postNote(note: String, addition: String) {
     // Add a date to the addition
     const date = new Date();
     addition = ` ${note} ${date.toLocaleDateString()} ${addition} \n\n`
     return addition;
-
-
-
   }
 
 }

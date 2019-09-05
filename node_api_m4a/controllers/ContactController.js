@@ -38,7 +38,8 @@ const createContact = (req, res) => {
 const getContacts =  (req, res) => {
     var pageNo = parseInt(req.query.pageNo);
         var size = parseInt(req.query.size)
-        var query = {}
+        var query = {};
+        var response = {};
         if (pageNo < 0 || pageNo === 0 ) {
             response = {
                         "error": true,

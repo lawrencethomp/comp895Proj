@@ -1,14 +1,25 @@
 import { Injectable } from '@angular/core';
 import {EventEmitter} from '@angular/core';
-import { Http } from '@angular/http';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-// import {Rx} from 'rxjs';
-import {Observable} from 'rxjs/Observable';
 import { Output } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {apiUrl} from './../../../apiConfig';
+import { NgForm } from '@angular/forms';
+
 @Injectable()
 export class SearchService {
 
-  constructor(private http: Http) {}
+  constructor(private _http: HttpClient) {}
+  searchUrl = `${apiUrl}/search`;
 
-  @Output() getSearchResults: EventEmitter<boolean> = new EventEmitter();
+  searchContacts(form: NgForm) {
+    return this._http.post(`${this.searchUrl}`, {
+      firstName: form.value.firstName,
+      lastName: form.value.lastName,
+      address: form.value.address,
+      phoneNumber: form.value.phoneNumber,
+      zipcode: form.value.zipcode
+    }, {observe: 'response'}
+    );
+  }
+
 }

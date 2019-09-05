@@ -51,7 +51,6 @@ export class GetContactService {
   }
 
   createContact(form: NgForm, lat, lng) {
-    console.log('it reached the service');
     const now: string = moment().format().toString();
     return this._http
       .post(`${this.contactUrl}`, {

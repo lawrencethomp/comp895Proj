@@ -5,57 +5,45 @@ var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://lawrencethomp:dryboy88@ds143201.mlab.com:43201/";
 var router = express.Router();
 var bodyParser = require('body-parser');
+
 var Contact = require('../Contact');
 
-const getSearchResults = (req, res) => {
-    var firstName = req.query.firstName;
-    var lastName = req.query.lastName;
-    // var supportACA = req.query.supportACA;
-    // var supportM4A = req.query.supportM4A;
-    // var incomeLevel = req.query.incomeLevel;
-    // var politicalView = req.query.politicalView;
-    // var voted = req.query.voted;
+const search = (req, res) => {
+
+    console.log(req.body);
+    console.log('backend');
+    var query = {};
+    if (req.body.firstName) {
+        query.firstName = req.body.firstName
+    }
+
+    if(req.body.lastName) {
+        query.lastName = req.body.lastName
+    }
+    if (req.body.address) {
+        query.address = req.body.address
+    }
+    if (req.body.phonenumber) {
+        query.phonenumber = req.body.phonenumber
+    }
+    if(req.body.email) {
+        query.email = req.body.email
+    }
+    if(req.body.city) {
+        query.city = req.body.city
+    }
+    if(req.body.state) {
+        query.state = req.body.state
+    }
+    if(req.body.zipcode) {
+        query.zipcode = req.body.zipcode
+    }
     Contact.find(
-        {"firstName": firstName,
-        "lastName": lastName,
-        // "preferences.supportACA" : supportACA,
-        // "preferences.supportM4A" : supportM4A,
-        // "preferences.incomeLevel": incomeLevel,
-        // "preferences.politicalView": politicalView,
-        // "preferences.voted": voted,
-    },
+        query,
         function(err, contacts) {
             if (err) return res.status(500)
                 .send("Problem finding contacts.");
             res.status(200).send(contacts);
     });
 }
-
-router.get('/', function(req, res) {
-    var firstName = req.query.firstName;
-    var lastName = req.query.lastName;
-    // var supportACA = req.query.supportACA;
-    // var supportM4A = req.query.supportM4A;
-    // var incomeLevel = req.query.incomeLevel;
-    // var politicalView = req.query.politicalView;
-    // var voted = req.query.voted;
-    Contact.find(
-        {"firstName": firstName,
-        "lastName": lastName,
-        // "preferences.supportACA" : supportACA,
-        // "preferences.supportM4A" : supportM4A,
-        // "preferences.incomeLevel": incomeLevel,
-        // "preferences.politicalView": politicalView,
-        // "preferences.voted": voted,
-    },
-        function(err, contacts) {
-            if (err) return res.status(500)
-                .send("Problem finding contacts.");
-            res.status(200).send(contacts);
-    });
-
- } );
-
-
-// next step: create something that has a state name function search & zipcode
-module.exports.getSearchResults = getSearchResults;
+module.exports.searchController = {search};
