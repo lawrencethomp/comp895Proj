@@ -12,12 +12,12 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: install
-          command: npm install
+          command: 'npm install'
       - run:
           name: cd-to-nodeapi
-          command: cd .\node_api_m4a\ 
+          command: 'cd .\node_api_m4a\'
       - run:
           name: test
-          command: npm test -t 'contacts.test.js'
+          command: "npm test -t 'contacts.test.js'"
       - store_artifacts:
         
